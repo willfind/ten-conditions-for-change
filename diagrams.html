@@ -1,0 +1,304 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      :root {
+        --light-orange: #fff2cc;
+        --medium-orange: #ffe599;
+        --dark-orange: #f1c232;
+        --very-dark-orange: #bf9000;
+
+        --light-green: #d9ead3;
+        --medium-green: #b6d7a8;
+        --dark-green: #6aa84f;
+        --very-dark-green: #38761d;
+
+        --light-purple: #ead1dc;
+        --medium-purple: #d5a6bd;
+        --dark-purple: #a64d79;
+        --very-dark-purple: #741b47;
+
+        --light-blue: #cfe2f3;
+        --medium-blue: #9fc5e8;
+        --dark-blue: #3d85c6;
+
+        --scale: 6;
+      }
+
+      body, html {
+        font-family: "Abel";
+      }
+
+      body {
+        font-size: calc(1.25em * var(--scale));
+        width: calc(800px * var(--scale));
+      }
+
+      .container {
+        padding: 2em;
+      }
+
+      .is-blue {
+        background-color: var(--light-blue);
+      }
+
+      .diagram {
+        border-radius: 1em;
+        padding: 2em;
+        width: calc(500px * var(--scale));
+      }
+
+      h1, h2 {
+        font-family: "Raleway Black";
+        font-weight: normal;
+        margin: 0;
+        font-size: 1em;
+      }
+
+      h2 {
+        font-family: "Abel";
+        font-weight: bold;
+      }
+
+      .icon {
+        height: 1em;
+        width: auto;
+        margin-right: 0.5em;
+      }
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-content: flex-start;
+        align-items: center;
+      }
+
+      .row.top-aligned {
+        align-items: flex-start;
+      }
+
+      .header {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+      }
+
+      .sub-header {
+        margin-bottom: 1em;
+      }
+
+      .content .icon {
+        font-size: 2em;
+      }
+
+      .content .row {
+        margin-bottom: 1em;
+      }
+
+      .content .row:last-child {
+        margin-bottom: 0;
+      }
+
+      hr {
+        border-radius: 1em;
+        margin: 1em 0;
+        padding: 0.1em;
+        border: 0;
+        background-color: black;
+      }
+
+      ol {
+        margin-left: 1em;
+        margin-bottom: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <button id="capture">Capture</button>
+    </p>
+
+    <div class="container">
+      <div class="diagram is-blue">
+        <div class="row header">
+          <img class="icon" src="res/img/action-arrows.png">
+          <h1>ACTION SEQUENCE</h1>
+        </div>
+
+        <hr>
+
+        <div class="sub-header">
+          <h2>A sequence of actions sufficient for succeeding in exercising once a week.</h2>
+        </div>
+
+        <hr>
+
+        <div class="content">
+          <div class="row">
+            <img src="res/img/magnifying-glass.png" class="icon">
+            Make a list of exercises you'd enjoy.
+          </div>
+          <div class="row">
+            <img src="res/img/choose.png" class="icon">
+            Choose one of these types of exercise to do weekly.
+          </div>
+          <div class="row">
+            <img src="res/img/clock.png" class="icon">
+            Pick a time to do the exercise that won't interfere with other obligations.
+          </div>
+          <div class="row">
+            <img src="res/img/directions.png" class="icon">
+            Decide where you'll be doing the exercise.
+          </div>
+          <div class="row">
+            <img src="res/img/exercise.png" class="icon">
+            Engage in the exercise at that time and place once a week.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="diagram is-blue">
+        <div class="row header">
+          <img class="icon" src="res/img/action-arrows.png">
+          <h1>ACTION SEQUENCE</h1>
+        </div>
+
+        <hr>
+
+        <div class="sub-header">
+          <h2>A sequence of actions sufficient for succeeding in donating to charity annually.</h2>
+        </div>
+
+        <hr>
+
+        <div class="content">
+          <div class="row">
+            <img src="res/img/pencil.png" class="icon">
+            Assess how much money to donate.
+          </div>
+          <div class="row">
+            <img src="res/img/magnifying-glass.png" class="icon">
+            Find out which charities have been proven to be cost-effective ways of helping the world.
+          </div>
+          <div class="row">
+            <img src="res/img/choose.png" class="icon">
+            Choose a charity to donate to.
+          </div>
+          <div class="row">
+            <img src="res/img/calendar.png" class="icon">
+            Select a date on which to donate.
+          </div>
+          <div class="row">
+            <img src="res/img/money.png" class="icon">
+            Set up a recurring donation to occur each year on that date.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="diagram is-blue">
+        <div class="row header">
+          <img class="icon" src="res/img/action-arrows.png">
+          <h1>ACTION SEQUENCE</h1>
+        </div>
+
+        <hr>
+
+        <div class="sub-header">
+          <h2>A sequence of actions sufficient for succeeding in exercising once a week.</h2>
+        </div>
+
+        <hr>
+
+        <div class="content">
+          <div class="row top-aligned">
+            <div>1.&nbsp;&nbsp;</div>
+            <div>Make a list of exercises you'd enjoy.</div>
+          </div>
+          <div class="row top-aligned">
+            <div>2.&nbsp;&nbsp;</div>
+            <div>Choose one of these types of exercise to do weekly.</div>
+          </div>
+          <div class="row top-aligned">
+            <div>3.&nbsp;&nbsp;</div>
+            <div>Pick a time to do the exercise that won't interfere with other obligations.</div>
+          </div>
+          <div class="row top-aligned">
+            <div>4.&nbsp;&nbsp;</div>
+            <div>Decide where you'll be doing the exercise.</div>
+          </div>
+          <div class="row top-aligned">
+            <div>5.&nbsp;&nbsp;</div>
+            <div>Engage in the exercise at that time and place once a week.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="diagram is-blue">
+        <div class="row header">
+          <img class="icon" src="res/img/action-arrows.png">
+          <h1>ACTION SEQUENCE</h1>
+        </div>
+
+        <hr>
+
+        <div class="sub-header">
+          <h2>A sequence of actions sufficient for succeeding in donating to charity annually.</h2>
+        </div>
+
+        <hr>
+
+        <div class="content">
+          <div class="row top-aligned">
+            <div>1.&nbsp;&nbsp;</div>
+            <div>Assess how much money to donate.</div>
+          </div>
+          <div class="row top-aligned">
+            <div>2.&nbsp;&nbsp;</div>
+            <div>Find out which charities have been proven to be cost-effective ways of helping the world.</div>
+          </div>
+          <div class="row top-aligned">
+            <div>3.&nbsp;&nbsp;</div>
+            <div>Choose a charity to donate to.</div>
+          </div>
+          <div class="row top-aligned">
+            <div>4.&nbsp;&nbsp;</div>
+            <div>Select a date on which to donate.</div>
+          </div>
+          <div class="row top-aligned">
+            <div>5.&nbsp;&nbsp;</div>
+            <div>Set up a recurring donation to occur each year on that date.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="res/js/html2canvas.min.js"></script>
+    <script src="node_modules/file-saver/dist/FileSaver.min.js"></script>
+    <script>
+      window.onload = function(){
+        let button = document.getElementById("capture")
+
+        button.addEventListener("click", async function(event){
+          let diagrams = document.getElementsByClassName("container")
+
+          for (let i=0; i<diagrams.length; i++){
+            let canvas = await html2canvas(diagrams[i])
+
+            canvas.toBlob(function(blob){
+              saveAs(blob, "diagram" + i + ".png")
+            })
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

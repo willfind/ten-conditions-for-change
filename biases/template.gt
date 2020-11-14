@@ -1,0 +1,168 @@
+----------------------
+-- RIGHTS AGREEMENT --
+----------------------
+
+*header: Rights Agreement
+
+*NOTE* *:* By completing this survey, you are giving us the rights to any responses you give herein. We may use those responses in any way we see fit, and none of your responses will be credited to you. If you cannot agree to these terms, please exit the survey now.
+
+*button: I understand, and I agree to the terms!
+
+------------------
+-- INSTRUCTIONS --
+------------------
+
+>> failedQuiz = 0
+
+*label: instructions
+
+*header: Instructions
+
+*if: failedQuiz = 1
+	*component
+		*classes: alert alert-danger
+		Uh-oh! You didn't answer at least one of the quiz questions correctly! Please read the instructions again!
+
+Welcome, and thanks for taking this survey! We really appreciate your time and effort!
+
+In this survey, we'll describe to you three *cognitive biases*. Cognitive biases are flaws in your thinking that lead you to misinterpret information from the world around you and to come to inaccurate conclusions. For each cognitive bias, we'll describe the bias to you and then ask you two questions. 
+
+First, we'll ask you to think about a scenario in which you're trying to help a friend or loved one to adopt a new positive habit or pattern of behavior, like going to the gym regularly, giving to charity each month, managing anger, meditating every morning, etc. Then we'll ask you to think about (1) ways that you could help that friend or loved one to /overcome/ the bias so that they can adopt the new habit or behavior, and/or (2) ways that you could ethically /leverage/ the bias to help the person to adopt the new habit or behavior.
+
+For the second question, we'll ask you which of the Ten Conditions for Change that your bias corresponds to. (Don't worry; we'll tell you all about the Ten Conditions for Change when we get to those questions!)
+
+*button: I understand!
+
+----------
+-- QUIZ --
+----------
+
+*label: quiz
+
+*page
+	*header: Quiz
+
+	Before we let you begin the survey, let's take a quick little quiz to make sure that you understand the instructions.
+
+	*question: What is a /cognitive bias/?
+		*answers: [["A cognitive bias is a flaw in your thinking that leads you to misinterpret information from the world around you and to come to an inaccurate conclusion.", "yes"], ["A cognitive bias is a flaw in an argument that invalidates the argument.", "no"], ["A cognitive bias is a new positive habit or pattern of behavior that someone is trying to adopt.", "no"], ["A cognitive bias is a set of instructions for overcoming old, bad habits (caused or maintained by faulty reasoning) and adopting new positive habits.", "no"]]
+		*shuffle
+		*save: gotQuestion1Right
+
+	*question: What kind of scenario should you imagine after reading about the cognitive bias and before answering the first question?
+		*answers: [["I should imagine a scenario in which I'm trying to help a friend or loved one to adopt a new positive habit or pattern of behavior.", "yes"], ["I should imagine a scenario in which I'm taking a survey.", "no"], ["I should imagine a scenario in which I'm meditating every morning.", "no"], ["I should imagine a scenario in which I have no cognitive biases at all.", "no"]]
+		*shuffle
+		*save: gotQuestion2Right
+
+*if: gotQuestion1Right = "no" or gotQuestion2Right = "no"
+	>> failedQuiz = 1
+	*goto: instructions
+
+*header: Good job!
+
+You answered the quiz questions correctly! Now it's time to begin the survey!
+
+*button: Okay!
+
+----------------
+-- RANDOMIZER --
+----------------
+
+>> counter = 1
+>> previousRandomNumbers = []
+>> final = {}
+
+*label: randomizer
+
+*service: Random Number API
+	*path: /get-random-number?min=0&max={{biases.size}}&type=int
+	*method: GET
+	*success
+		>> randomNumber = it["result"]
+	*error
+		ERROR: {it}
+
+>> i = 1
+
+*while: i <= previousRandomNumbers.size
+	*if: previousRandomNumbers[i] = randomNumber
+		*goto: randomizer
+
+	>> i = i + 1
+
+>> previousRandomNumbers.add(randomNumber)
+{% for i in (0..biases.size) %}{% assign bias = biases[i] %}{% if bias %}
+*if: randomNumber = {{i}}
+	*group
+		>> bias = {{bias.gtObject}}
+{% endif %}{% endfor %}
+
+---------------
+-- QUESTIONS --
+---------------
+
+*page
+
+	-----------------
+	-- QUESTION #1 --
+	-----------------
+
+	*html
+		<h1 class="alert alert-info"><b>Bias:</b> {bias["name"]}</h1>
+
+	*html
+		{bias["content"]}
+
+	If you want, you can read more about the {bias["name"]} [here|{bias["source"]}].
+
+	*html
+		<hr>
+
+	*html
+		<h1 class="alert alert-danger">Question #1</h1>
+
+	*question: Imagine a scenario in which you're trying to help a friend or loved one to adopt a new positive habit or pattern of behavior, like going to the gym regularly, giving to charity each month, managing anger, meditating every morning, etc. If your friend or loved one was having trouble adopting the new habit or behavior because they were getting tripped up by the {bias["name"]}, then how would you help them to overcome that bias and adopt the new habit or behavior? Or if you could ethically leverage the {bias["name"]} to help the person to adopt the new habit or behavior, then how would you do it? Think: "To help a friend or loved one to overcome the {bias["name"]} and adopt a new positive habit or pattern of behavior, I would _____." Or, conversely (or additionally): "To ethically leverage the {bias["name"]} to help someone to adopt a new positive habit or pattern of behavior, I would _____." Please provide as much detail as you can!
+		*tip: If you think about it for a while and can't imagine a way in which the {bias["name"]} has anything to do with adopting a new habit or behavior, then feel free to write something like "New behavior adoption isn't affected by this bias" in the answer box below.
+		*type: paragraph
+		*save: temp1
+
+	-----------------
+	-- QUESTION #2 --
+	-----------------
+
+	*html
+		<hr>
+
+	*html
+		<h1 class="alert alert-danger">Question #2</h1>
+
+	*question: The *Ten Conditions for Change* is a framework for helping people to adopt new positive behaviors or habits. The framework basically claims that if people have met all ten conditions, then they will adopt a new behavior. Given the definitions of the Ten Conditions for Change below and the definition of the {bias["name"]}, which of the Ten Conditions do you think is *most* affected by the {bias["name"]}? In other words, if a person is trying to adopt a new positive behavior but is failing to do so because they're suffering from the {bias["name"]}, then which of the Ten Conditions are they likely failing to meet? Or, conversely, if you could ethically leverage the {bias["name"]} to help someone adopt a new behavior, then which of the Ten Conditions would you most affect by leveraging the bias? (If you want, you can read more about the Ten Conditions for change [here|https://www.sparkwave.tech/conditions-for-change/].)
+		*save: temp2
+		1. A person *considers* the behavior. A person is very unlikely to change a behavior if they have not even considered changing it.
+		2. A person *desires* to adopt the new behavior. Even if a person has considered adopting a new behavior, they're very unlikely to actually do so unless they desire to adopt it. There are two different types of desire: /intuitive desire/ (a gut-level positive feeling or emotion about engaging in a behavior) and /reflective desire/ (an analytical, reasoned belief that the behavior is worthwhile). To make a behavior likely, it's critical to have at least one of these two forms of desires, but it's best if the person desires the behavior in both the intuitive and reflective senses.
+		3. A person *intends* to adopt the new behavior. Even if a person desires to adopt a new behavior, they're very unlikely to actually do so unless they themselves predict that they will conduct that behavior at specific times, in specific situations, or within a certain time frame.
+		4. A person *remembers* to perform the actions that make up the new behavior. A person is unlikely to adopt a new behavior if they don't remember to perform the relevant actions at the right times.
+		5. A person *believes* (1) that the relevant actions have a significant connection to the adoption of the new behavior and (2) that they themselves are able to perform the actions. A person is very unlikely to attempt a specific action if they don't think that attempting it will help them to achieve the desired outcome.
+		6. A person *chooses* to perform the relevant actions instead of performing other actions. Even if a person remembers to perform an action, they're very unlikely to perform that action unless they choose it over the other actions or opportunities that are available to them at the same time.
+		7. A person *knows* how to perform each action. A person is very unlikely to perform a specific action unless they have the information or knowledge needed to perform that action effectively.
+		8. A person *has* the necessary resources and permission to perform the relevant actions. A person is very unlikely to perform a specific action unless they have the resources or permissions they need to perform that action effectively.
+		9. A person *embodies* the skills and traits needed to perform the relevant actions. A person is very unlikely to perform a specific action unless they have the physical capacities, mental capabilities, and skills needed to perform that action.
+		10. A person *maintains* all of the things needed to perform the relevant actions in the future. A person is very unlikely to perform future required actions if, due to the experience of taking earlier actions or due to the passage of time, the conditions mentioned above fall below adequate levels.
+		None of the above. This bias doesn't affect any of the above conditions.
+
+>> final["mainQuestion{counter * 2 - 1}Response"] = temp1
+>> final["mainQuestion{counter * 2}Response"] = temp2
+>> counter = counter + 1
+
+*if: counter <= 3
+	*goto: randomizer
+
+---------
+-- END --
+---------
+
+*header: Thanks!
+
+Thank you so much for your time and effort! We really appreciate your participation! Follow the link below to finish up and get paid!
+
+[https://app.positly.com/#/f?task_id=695e0c0f|https://app.positly.com/#/f?task_id=695e0c0f]

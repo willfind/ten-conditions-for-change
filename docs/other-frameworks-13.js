@@ -1,0 +1,42 @@
+// other-frameworks-13.js
+
+module.exports = {
+
+	title: "Intentional Change Theory (2006)",
+
+	year: 2006,
+
+	content: `
+		The [Intentional Change Theory](https://www.emerald.com/insight/content/doi/10.1108/02621710610678445/full/html) by [Richard Boyatzis](https://weatherhead.case.edu/faculty/richard-boyatzis) starts with the premise that for a behavior change to be sustainable over time, it must be desired - that is, a person must want to change in order to do so. Intentional change is self-directed change in which the person is aware of the change and understands the process of change.
+
+		The process of Intentional Change is based on five "discoveries" for the person who is changing their behavior that often occur as a surprise or an epiphany rather than as a smooth, linear event:
+
+		- **The Ideal Self**: The first "discovery" happens when a person finds who they want to be. It is "a personal vision that articulates a person's dreams, aspirations and fantasies." It is believed that intrinsic motives lead to sustained change more than extrinsic ones, hence the importance of this "discovery" which, according to Boyatzis, is often overlooked. There are different ways to envision the Ideal Self, such as talking with friends or mentors, meditating to visualize oneself as the person one wants to be, and seeking support among people who are also working on their vision of their own Ideal Self.
+		- **Who am I?**: The second "discovery" happens when a person develops an accurate vision of who they are right now: their Current Self. It involves identifying their strengths and aspects of themselves that they want to keep and which will help them become their Ideal Self. Likewise, they should notice what they should change or transform. Making an assessment of the Current Self is challenging: a person may not notice things about themselves that are evident to other people, they may be in the process of changing without noticing it (the boiling frog syndrome), or there may be enablers in their environment who do not give them accurate feedback because they forgive undesired behaviors or do not care to see them improve. In order for the second "discovery" to happen, a person may request feedback from other people, take psychological tests, or reflect upon their core values and personal philosophy.
+		- **Learning Agenda**: Once a person knows who they are - the Current Self - and who they want to be - the Ideal Self - they need to plan how they will move towards their vision. The third "discovery" - the Learning Agenda - is the planning of this journey towards the Ideal Self, which should be seen as personal development rather than as the setting of standard goals that the person must achieve. In doing so, personal standards of performance are set. Since they are relevant to the person undergoing change, the standards provide motivation towards sustainable change.
+		- **Experiment and Practice**: The fourth "discovery" occurs when a person experiments with new behaviors and practices them in different contexts. At this point, the behavior change appears more linear, and improvement starts to be evident. Experiments and practice "are most effective when they occur in conditions in which the person feels safe," unexposed, and not under pressure to succeed.
+		- **Resonant Relationships**: The fifth "discovery" involves identifying people in a person's environment who can help, support, and encourage behavior change process: they provide a sense of identity, guidance, and feedback, and they serve as models. They are also a key to preventing relapses.
+
+		The Intentional Change Theory states that for a person to achieve sustainable, desired change, they should loop through the first four "discoveries" explained above. The fifth "discovery," relationships that help us learn, aid throughout the whole process. Each "discovery" can be used as a benchmark, and it is not recommended that one moves on to the next one until the current one has been properly addressed.
+
+		There are [two physio-psychological states](https://www.frontiersin.org/articles/10.3389/fpsyg.2015.00670/full#B8) in which people may find themselves as they are looping through the "discoveries":
+
+		- Positive Emotional Attractor (PEA): This state builds on positive emotions. When people are in this state, they think optimistically about the future and engage their dreams. They also focus on their strengths, are more open to experimentation, and foster positive relationships.
+		- Negative Emotional Attractor (NEA): This state is characterized by negative emotions such as fear, anxiety, sadness, anger, disgust, and despair. People in this state tend to focus on performance and outcomes: they react to a threat and take action; and once the threat is gone, they may find themselves taking up undesired behaviors again. Also, they notice their weaknesses more than their strengths.
+
+		Based on the above, it seems that a person should ideally be in the PEA. However, being in the NEA is useful for attaining focused attention, performing analytical tasks, and making decisions. Dejection-related emotions associated with the NEA may also sometimes help a person build their Ideal Self, but they need to be properly balanced with the PEA. Dissatisfaction can be a starting point for a person to realize that their Current Self does not align with their Ideal Self, but mainly they need the openness and hope that characterize the PEA in the process of sustainable change.
+
+		Both states are self-regulating in the sense that once a person is in one of them, they will remain there until an event occurs. However, since the system is not fully efficient, their deterioration occurs over time. It is assumed that there has to be an intentional effort to remain in the PEA, as it is generally believed that negative emotions are stronger than positive ones.
+
+		Finally, "sustainable change occurs at any level of human and social organization through the same Intentional Change Theory." The primary difference when shifting from ICT at the individual level to a higher social structure is that the "discoveries" are defined at group level: the Ideal Self becomes a shared vision of the individuals in the group, and the group as a whole loops through the "discoveries." These different levels of organization are connected through leadership and reference groups.
+
+		Boyatzis states that the Intentional Change Theory, with the essential components and process of behavior change, shows the characteristics of a complex system:
+
+		- ICT is **non-linear** because the five "discoveries" are tipping points in the process of change (i.e. the amount of output over a given time is not merely proportional to the amount of input).
+		- The property of **self-organization** manifests itself in the self-regulatory effect of the Positive and Negative Attractors.
+		- With respect to the **formation of patterns** that replicate at different levels in complex systems, ICT reproduces across social structures (person, dyad, team/family, organization, community, country/culture, and global).
+
+		**Connection**: A person creates a vision of their Ideal Self in the first "discovery" and identifies their Current Self in the second. When they measure one against the other and notice the differences between the two, the Considers condition of our framework can be met. The Ideal Self is built on a person's dreams and aspirations, which motivates them to embark on the process of behavior change: this closely relates to the Desires condition in our framework. The third "discovery" - creating a learning agenda - is the link between vision and action; in our framework, this link is the Intends condition. The fourth "discovery" - experimentation and practice - corresponds to the Action phase in the Ten Conditions for Change framework: addressing the Action conditions (Remembers, Believes, Chooses, etc.) may therefore be helpful to make this "discovery." Finally, the fifth "discovery" - resonant relationships - helps all other discoveries. In the Ten Conditions for Change, we also find that a person's social environment can help them meet different conditions both in the Decision and Action phase: Desires (role models), Intends (public commitment), Chooses (praise when starting a task), Knows (teaching), Embodies (modeling of the behavior), and Maintains (support network).
+	`,
+	
+}

@@ -1,0 +1,91 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <script>
+      function sigmoid(x){
+        let a = 1 / (1 + Math.exp(8 - 16 * x))
+        let b = 0.5 * Math.sin(Math.PI * x - Math.PI / 2) + 0.5
+        return 0.5 * a + 0.5 * b
+      }
+
+      function downloadCanvasAsImage(canvas, filename){
+        let a = document.createElement("a")
+        a.href = canvas.toDataURL()
+        a.download = filename
+        a.dispatchEvent(new MouseEvent("click"))
+      }
+
+      function pause(ms){
+        return new Promise(function(resolve, reject){
+          try {
+            return setTimeout(resolve, ms)
+          } catch(e){
+            return reject(e)
+          }
+        })
+      }
+
+      window.onload = async function(){
+        let orange = "#ffe599"
+        let green = "#b6d7a8"
+        let purple = "#d5a6bd"
+
+        let width = 1024
+        let height = 1024
+        let canvas = document.createElement("canvas")
+        canvas.width = width
+        canvas.height = height
+        document.body.appendChild(canvas)
+
+        let context = canvas.getContext("2d")
+        context.lineCap = "round"
+        context.lineWidth = width / 32
+
+        let offset = 0
+        let radius = width / 4
+        let frame = 0
+        let isStillGoing = true
+
+        while (isStillGoing){
+          await pause(100)
+
+          context.clearRect(0, 0, width, height)
+          context.fillStyle = "white"
+          context.fillRect(0, 0, width, height)
+
+          let tempOffset = sigmoid(offset / (2 * Math.PI)) * 2 * Math.PI
+
+          context.strokeStyle = orange
+          context.beginPath()
+          context.arc(width/2, height/2, radius, 0 + tempOffset, 1 * 2 * Math.PI / 3 + tempOffset)
+          context.stroke()
+
+          context.strokeStyle = green
+          context.beginPath()
+          context.arc(width/2, height/2, radius, 1 * 2 * Math.PI / 3 + tempOffset, 2 * 2 * Math.PI / 3 + tempOffset)
+          context.stroke()
+
+          context.strokeStyle = purple
+          context.beginPath()
+          context.arc(width/2, height/2, radius, 2 * 2 * Math.PI / 3 + tempOffset, 3 * 2 * Math.PI / 3 + tempOffset)
+          context.stroke()
+
+          context.strokeStyle = orange
+          context.beginPath()
+          context.arc(width/2, height/2, radius, 0 + tempOffset, 1 * 2 * Math.PI / 6 + tempOffset)
+          context.stroke()
+
+          offset += 2 * Math.PI / 60
+
+          frame++
+          downloadCanvasAsImage(canvas, `${frame}.png`)
+
+          if (offset >= 2 * Math.PI){
+            isStillGoing = false
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

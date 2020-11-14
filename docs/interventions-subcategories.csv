@@ -1,0 +1,51 @@
+CONDITION,SUB-CATEGORY,DESCRIPTION
+Considers,AWARENESS,Strategies that aim to make a person aware of the need for behavior change or that change is possible
+Considers,STEREOTYPES,Strategies that aim to raise awareness of stereotypes
+Considers,PRESENTATION,Strategies to convey the message effectively
+Considers,MEDIUM,Strategies dealing with the channels used to reach or communicate with a person
+Desires,CHARISMA,Strategies in which the desire to start the new behavior is instigated by the personal characteristics of the person presenting it
+Desires,COHERENCE,Strategies that appeal to the person's self-coherence
+Desires,IDENTITY,Strategies that create a link between the desired behavior and the identity (real or desired) of the person
+Desires,INTRINSIC BENEFITS,"Strategies that emphasize the positive effects that adopting the new behavior will have on the person, their environment, or any other beneficiaries"
+Desires,LOGIC,Strategies that present the desired behavior as the logical course of action
+Desires,NEGATIVE EMOTIONS,"Strategies that appeal to negative emotions such as fear, guilt or regret"
+Desires,PRIMAL DESIRE,"Strategies that tap into universal desires such as curiosity, happiness, having a good self-image, and feeling special among others"
+Desires,PUNISHMENT,Strategies that create negative outcomes for engaging in a bad behavior or for failing to take action
+Desires,REWARDS,Strategies offering benefits contingent on the behavior that increase the probability or rate of the behavior
+Desires,SALIENCE,Strategies that aim to make the desired behavior stand out or be more noticeable
+Desires,SOCIAL INFLUENCE,Strategies based on the fact that individuals adjust their behavior to meet the demands of their social environment
+Desires,RELEVANCE,Strategies attempting to change the belief that a person's individual behavior is irrelevant in the grand scheme of things
+Desires,OTHER,
+Intends,COMMITMENT,Interventions aimed at helping a person plan to start and stick to the new behavior by appealing to their sense of commitment—either to others or themselves
+Intends,PLANNING,"Interventions aimed at helping the person plan when, where, and how they are going to perform the new behavior."
+Intends,SELF EFFICACY ABOUT THE BEHAVIOR,Interventions that boost the perceived self-efficacy about the new behavior
+Remembers,REMINDERS,Interventions involving reminding the person about a needed action
+Remembers,REPETITION,Interventions involving repeating or practicing in order to aid memory
+Believes,TASK SELF-EFFICACY,Interventions that boost the person's self-efficacy about the action
+Believes,LINKING ACTION & DESIRED OUTCOME,Interventions aimed at stressing the link between performing the action and achieving the desired outcome
+Chooses,AUTOMATIC,Strategies causing a person to carry out the action without having to consciously think about it
+Chooses,EMOTIONAL STATE,Strategies that focus on the person being in the right emotional state so that they choose to do the action
+Chooses,FRICTION REDUCING,Strategies that reduce barriers (such as effort) that keep people from doing the desired action
+Chooses,HIGHLIGHTING,Strategies that make the action look more noticeable or more appealing than the alternatives
+Chooses,PUNISHMENT,Strategies that generate negative outcomes if the person fails to choose to do the action
+Chooses,REWARDS,Strategies that use external incentives to encourage doing the action
+Knows,MEMORIZATION,Techniques to aid the person to memorize how to perform the action
+Knows,PRACTICE,Learning how to perform the action by practicing or by analyzing the previous practice of similar behaviors
+Knows,LEARNING SUPPORT,Strategies where people are matched with those they can learn from
+Knows,TRAINING,Using training strategies to perform the action
+Has,PROVIDING,Interventions that directly provide resources
+Has,PREPARATION,Interventions that involve preparing the person so that they can more easily acquire future needed resources
+Embodies,MODELING,Strategies in which skilled people demonstrate how to perform the action
+Embodies,MODIFIED ACTION,Modifying the action so that the person can perform it more easily - either because they are unable to do the original action or because they are in the process of developing the skills required
+Embodies,SUPPORT,Providing external help so that the person can perform the action
+Embodies,TRAINING,Interventions aimed at developing the required skills to perform the action
+Embodies,OTHER,
+Maintains,COMMITMENT,Strategies that target maintaining the commitment of the individual to achieve their goal
+Maintains,COPING AND RECOVERY,Strategies that help individuals develop coping mechanisms and recover from failing to keep the new behavior
+Maintains,EMOTIONAL STATE,Strategies that focus on the person being in the right emotional state to maintain the new behavior
+Maintains,FEEDBACK,Ways of providing feedback to enhance adherence to the desired behavior
+Maintains,MINDSET,Strategies that address the individual's beliefs that influence the maintenance of the behavior
+Maintains,PERIODIC COMMUNICATION,Strategies involving periodic communication with individuals
+Maintains,PURPOSE,Help individuals remember their ultimate goal related to the behavior or the benefits of adhering to it.
+Maintains,REWARDS,Adding incentives to achieving or maintaining a behavior in order to increase motivation.
+Maintains,SUPPORT NETWORK,Creating a network of people that can provide practical or emotional support.
