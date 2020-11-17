@@ -10,7 +10,7 @@ String.prototype.replaceAll = function(a, b){
 }
 
 csv().fromFile("biases.csv").then(biases => {
-	biases = biases.slice(0, 3)
+	// biases = biases.slice(0, 3)
 
 	let data = {
 		biases: biases.map((bias, i) => {
