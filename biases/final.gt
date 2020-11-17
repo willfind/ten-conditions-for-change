@@ -33,6 +33,61 @@ For the second question, we'll ask you which of the Ten Conditions for Change th
 
 *button: I understand!
 
+-------------
+-- EXAMPLE --
+-------------
+
+*header: Example
+
+Let's pretend that there's a bias called the *Special Numbers Bias*, and most people experience it. The Special Numbers Bias is a subconscious preference for some numbers and a distaste for other numbers. For example, many people set their TV volume or radio volume to certain numbers, like multiples of 2 or 5. Other people have fear of certain "unlucky" numbers, like 13 or 666, and so will avoid using them whenever possible and will feel a (possibly subconscious) negative "vibe" about the context in which those numbers are presented to them. 
+
+If you were trying to get a friend or loved one to adopt a new positive habit or pattern of behavior, how would you (1) help the person to /overcome/ the Special Numbers Bias in order to adopt the new habit or behavior, and/or (2) ethically /leverage/ the bias to help the person to adopt the new habit or behavior?
+
+Well, you might give an answer like this: 
+
+*html
+	<style>
+		blockquote {
+			margin: 1em 0;
+			padding: 1em;
+			background-color: rgb(235, 235, 235);
+			border-radius: 4px;
+			border: 0 !important;
+		}
+
+		hr {
+			border: 0 !important;
+			background-color: rgb(51, 51, 51) !important;
+			padding: 1px !important;
+			margin: 1em 0 2em 0;
+		}
+	</style>
+
+	<blockquote>
+		<h4>Answer</h4>
+
+		<hr>
+
+		<p>If a friend was trying to adopt the habit of going to the gym every day, I would try to help them to <i>overcome</i> the Special Numbers Bias by:</p>
+
+		<ul>
+			<li>trying to convince them that there's nothing special or scary about any particular numbers</li>
+			<li>asking them to record daily numbers, like the number of reps they did on weights, the amount of time they ran for on the treadmill, the day of the month, their weight, and their mood or progress to show them that there's ultimately no correlation between positive or negative outcomes and certain numbers</li>
+			<li>(if they can't be convinced by the above steps) allowing them to avoid any numbers they feel a negative vibe about, like allowing them to skip going to the gym on the 13th of every month, or allowing them to pick numbers of reps that don't incorporate any numbers they dislike</li>
+		</ul>
+
+		<p>I would try to <i>leverage</i> the Special Numbers Bias to help them begin going to the gym by:</p>
+
+		<ul>
+			<li>plan workouts that include their favorite numbers, like using numbers of reps that they like, or numbers of minutes on the treadmill that they like, etc.</li>
+			<li>speak words of encouragement or praise or giving other kinds of rewards any time they get to a favorite number when doing reps or running on the treadmill or when they work out for a favorite number of days, etc.</li>
+		</ul>
+	</blockquote>
+
+Once you feel like you understand this example, feel free to continue on to the survey!
+
+*button: I'm ready!
+
 ----------
 -- QUIZ --
 ----------
@@ -888,5 +943,9 @@ You answered the quiz questions correctly! Now it's time to begin the survey!
 *header: Thanks!
 
 Thank you so much for your time and effort! We really appreciate your participation! Follow the link below to finish up and get paid!
+
+*component
+	*classes: alert alert-danger
+	*NOTE* *:* We've been notified that there's a problem with the feedback survey that you'll complete after this activity. We're looking into it right now and will hopefully have it fixed soon. In the meantime, feel free to send us your feedback via a message. Thanks for your understanding and patience!
 
 [https://app.positly.com/#/f?task_id=695e0c0f|https://app.positly.com/#/f?task_id=695e0c0f]
