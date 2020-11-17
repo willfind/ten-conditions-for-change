@@ -150,8 +150,8 @@ You answered the quiz questions correctly! Now it's time to begin the survey!
 		10. A person *maintains* all of the things needed to perform the relevant actions in the future. A person is very unlikely to perform future required actions if, due to the experience of taking earlier actions or due to the passage of time, the conditions mentioned above fall below adequate levels.
 		None of the above. This bias doesn't affect any of the above conditions.
 
->> final["mainQuestion{counter * 2 - 1}Response"] = temp1
->> final["mainQuestion{counter * 2}Response"] = temp2
+>> final["{bias["name"]}: Question #1"] = temp1
+>> final["{bias["name"]}: Question #2"] = temp2
 >> counter = counter + 1
 
 *if: counter <= 3
