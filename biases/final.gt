@@ -944,8 +944,4 @@ You answered the quiz questions correctly! Now it's time to begin the survey!
 
 Thank you so much for your time and effort! We really appreciate your participation! Follow the link below to finish up and get paid!
 
-*component
-	*classes: alert alert-danger
-	*NOTE* *:* We've been notified that there's a problem with the feedback survey that you'll complete after this activity. We're looking into it right now and will hopefully have it fixed soon. In the meantime, feel free to send us your feedback via a message. Thanks for your understanding and patience!
-
 [https://app.positly.com/#/f?task_id=695e0c0f|https://app.positly.com/#/f?task_id=695e0c0f]
