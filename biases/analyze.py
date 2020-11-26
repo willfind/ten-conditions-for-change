@@ -33,3 +33,18 @@ for key in out.keys():
 
 out = DF(out)
 out.to_csv("summary.csv", index=False)
+
+temp = ""
+
+for col in list(sorted(out.columns)):
+  responses = out[col].dropna().values
+
+  temp += "==========\n"
+  temp += col.replace("&quot;", '"') + "\n"
+  temp += "==========\n\n"
+
+  for response in responses:
+    temp += str(response) + "\n\n"
+
+with open("summary.txt", "w") as file:
+  file.write(temp)
