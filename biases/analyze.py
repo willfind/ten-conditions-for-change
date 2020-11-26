@@ -1,32 +1,35 @@
 from python_data_science_helpers.helpers import *
 import json
 
-def findString(x, arr):
+def find(x, arr):
   return filter(lambda val: x.lower() in val.lower(), arr)[0]
 
+timeFinished = "Time Finished (UTC)"
 biases = pd.read_csv("biases.csv")
-data = pd.read_csv("data.csv")
-timeFinished = findString("time finished", data.columns)
-minutesSpent = findString("minutes spent", data.columns)
-data = data.loc[data[timeFinished].dropna().index]
+data = pd.read_csv("data.csv", parse_dates=[timeFinished])
+data = data.loc[where(data[timeFinished] >= pd.to_datetime("November 17, 2020"))[0]]
+final = data["final"].dropna().reset_index(drop=True)
+final = final.apply(lambda s: json.loads(s)).values
+out = {}
+maxLength = 0
 
-final = data["final"].apply(lambda obj: json.loads(obj))
-finalCols = sorted(list(final[0].keys()))
-df = DF()
+for i in range(0, len(final)):
+  obj = final[i]
 
-for col in finalCols:
-  df = df.assign(**{col: final.apply(lambda obj: obj[col])})
+  for key in obj.keys():
+    val = obj[key]
 
-randomNumbers = list(data["previousRandomNumbers"].apply(lambda s: json.loads(s)))
-biases = DF(map(lambda numbers: map(lambda n: biases.iloc[n, :]["name"], numbers), randomNumbers))
-biases.columns = list("bias" + str(i) for i in [1, 2, 3])
-biases.index = df.index
-df = df.join(biases)
-df = df[sorted(df.columns)]
-df.to_csv("cleaned.csv", index=False)
+    if key not in out:
+      out[key] = [val]
+    else:
+      out[key].append(val)
 
-plot.hist(data[minutesSpent])
-plot.title("distribution of minutes spent")
-plot.savefig("/home/josh/Desktop/minutes-spent.png")
-# plot.show()
-plot.clf()
+    if len(out[key]) > maxLength:
+      maxLength = len(out[key])
+
+for key in out.keys():
+  while len(out[key]) < maxLength:
+    out[key].append(None)
+
+out = DF(out)
+out.to_csv("summary.csv", index=False)
