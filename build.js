@@ -228,6 +228,7 @@
 	// load the interventions data
 	let interventions = await csv().fromFile("./docs/interventions.csv")
 	let subcategories = await csv().fromFile("./docs/interventions-subcategories.csv")
+	let biases = await csv().fromFile("./docs/biases.csv")
 
 	// compile the subcategory data from individual objects (each representing a line from the CSV file) into one big object
 	let tempSubcategories = {}
@@ -274,6 +275,36 @@
 	})
 
 	interventions = tempInterventions
+
+	// add the cognitive biases to the interventions lists
+	biases.forEach(function(bias){
+		let categories = bias["Ten Conditions for Change"].split(",")
+		let subcategory = "Biases & Fallacies"
+
+		categories.forEach(category => {
+			category = category.trim().replace(/\d\. /, "").toUpperCase()
+			if (!interventions[category]) interventions[category] = {}
+
+			if (!interventions[category][subcategory]){
+				interventions[category][subcategory] = {
+					id: makeKey(32),
+					description: "Strategies that mitigate errors in cognition or reasoning",
+					interventions: [],
+				}
+			}
+
+			interventions[category][subcategory].interventions.push({
+				"TEN CONDITIONS FOR CHANGE": category,
+				"TEN CONDITIONS FOR CHANGE SUB-CATEGORY": "Biases & Fallacies",
+				"METHOD NAME:": bias["Name"],
+				"DESCRIPTION / IMPLEMENTATION STRATEGY:": bias["Content"] + "\n" + bias["Benevolent helper"],
+				"SOURCE:": bias["Source"],
+				"URL:": bias["Source"],
+				"KEYWORDS": [],
+				id: makeKey(32),
+			})
+		})
+	})
 
 	// define the document structure for the entire page, and then fetch, parse, and render individual documents
 	let data = {
