@@ -338,6 +338,7 @@
 				fetchAndParse("./docs/other-frameworks-14.js", interventions),
 				fetchAndParse("./docs/other-frameworks-15.js", interventions),
 				fetchAndParse("./docs/other-frameworks-16.js", interventions),
+				fetchAndParse("./docs/other-frameworks-17.js", interventions),
 			].sort(sortByYear),
 		},
 	}
