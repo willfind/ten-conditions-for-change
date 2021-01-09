@@ -14709,7 +14709,7 @@ module.exports = Vue.component("substep-content", {
 
       let biases = out.filter(item => item.toUpperCase().includes("BIASES & FALLACIES"))[0]
 
-      if (biases.length > 0){
+      if (biases && biases.length > 0){
         biases = out.splice(out.indexOf(biases), 1)[0]
         out.push(biases)
       }
