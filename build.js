@@ -278,31 +278,29 @@
 
 	// add the cognitive biases to the interventions lists
 	biases.forEach(function(bias){
-		let categories = bias["Ten Conditions for Change"].split(",")
+		let category = bias["Ten Conditions for Change"].split(",")[0]
+		category = category.trim().replace(/\d\. /, "").toUpperCase()
 		let subcategory = "Biases & Fallacies"
 
-		categories.forEach(category => {
-			category = category.trim().replace(/\d\. /, "").toUpperCase()
-			if (!interventions[category]) interventions[category] = {}
+		if (!interventions[category]) interventions[category] = {}
 
-			if (!interventions[category][subcategory]){
-				interventions[category][subcategory] = {
-					id: makeKey(32),
-					description: "Strategies that mitigate errors in cognition or reasoning",
-					interventions: [],
-				}
-			}
-
-			interventions[category][subcategory].interventions.push({
-				"TEN CONDITIONS FOR CHANGE": category,
-				"TEN CONDITIONS FOR CHANGE SUB-CATEGORY": "Biases & Fallacies",
-				"METHOD NAME:": bias["Name"],
-				"DESCRIPTION / IMPLEMENTATION STRATEGY:": bias["Content"] + "\n" + bias["Benevolent helper"],
-				"SOURCE:": bias["Source"],
-				"URL:": bias["Source"],
-				"KEYWORDS": [],
+		if (!interventions[category][subcategory]){
+			interventions[category][subcategory] = {
 				id: makeKey(32),
-			})
+				description: "Strategies that mitigate errors in cognition or reasoning",
+				interventions: [],
+			}
+		}
+
+		interventions[category][subcategory].interventions.push({
+			"TEN CONDITIONS FOR CHANGE": category,
+			"TEN CONDITIONS FOR CHANGE SUB-CATEGORY": "Biases & Fallacies",
+			"METHOD NAME:": bias["Name"],
+			"DESCRIPTION / IMPLEMENTATION STRATEGY:": bias["Description"] + "\n" + bias["Examples"] + "\n" + bias["Benevolent helper"],
+			"SOURCE:": bias["Source"],
+			"URL:": bias["Source"],
+			"KEYWORDS": [],
+			id: makeKey(32),
 		})
 	})
 
