@@ -229,6 +229,7 @@
 	let interventions = await csv().fromFile("./docs/interventions.csv")
 	let subcategories = await csv().fromFile("./docs/interventions-subcategories.csv")
 	let biases = await csv().fromFile("./docs/biases.csv")
+	let biasesKeywords = JSON.parse(fs.readFileSync("./docs/biases-keywords.json", "utf8"))
 
 	// compile the subcategory data from individual objects (each representing a line from the CSV file) into one big object
 	let tempSubcategories = {}
@@ -280,7 +281,7 @@
 	biases.forEach(function(bias){
 		let category = bias["Ten Conditions for Change"].split(",")[0]
 		category = category.trim().replace(/\d\. /, "").toUpperCase()
-		let subcategory = "Biases & Fallacies"
+		let subcategory = "BIASES & FALLACIES"
 
 		if (!interventions[category]) interventions[category] = {}
 
@@ -294,12 +295,12 @@
 
 		interventions[category][subcategory].interventions.push({
 			"TEN CONDITIONS FOR CHANGE": category,
-			"TEN CONDITIONS FOR CHANGE SUB-CATEGORY": "Biases & Fallacies",
+			"TEN CONDITIONS FOR CHANGE SUB-CATEGORY": "BIASES & FALLACIES",
 			"METHOD NAME:": bias["Name"],
 			"DESCRIPTION / IMPLEMENTATION STRATEGY:": md.renderInline(bias["Description"] + "\n" + bias["Examples"] + "\n" + bias["Benevolent helper"]),
 			"SOURCE:": bias["Source"],
 			"URL:": bias["Source"],
-			"KEYWORDS": [],
+			"KEYWORDS": biasesKeywords[bias["Name"]],
 			id: makeKey(32),
 		})
 	})
