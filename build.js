@@ -296,7 +296,7 @@
 			"TEN CONDITIONS FOR CHANGE": category,
 			"TEN CONDITIONS FOR CHANGE SUB-CATEGORY": "Biases & Fallacies",
 			"METHOD NAME:": bias["Name"],
-			"DESCRIPTION / IMPLEMENTATION STRATEGY:": bias["Description"] + "\n" + bias["Examples"] + "\n" + bias["Benevolent helper"],
+			"DESCRIPTION / IMPLEMENTATION STRATEGY:": md.renderInline(bias["Description"] + "\n" + bias["Examples"] + "\n" + bias["Benevolent helper"]),
 			"SOURCE:": bias["Source"],
 			"URL:": bias["Source"],
 			"KEYWORDS": [],

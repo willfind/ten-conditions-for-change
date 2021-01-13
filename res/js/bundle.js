@@ -14731,6 +14731,14 @@ module.exports = Vue.component("substep-content", {
         </span>
       `
 
+      if (title === "BIASES & FALLACIES"){
+        out += `
+          <span>
+            <img src="res/img/noun_Error_1582579.svg" class="img-inline">
+          </span>
+        `
+      }
+
       if (description){
         out += `
           <span class="has-font-weight-normal">
