@@ -14599,6 +14599,12 @@ module.exports = Vue.component("intervention-search-modal", {
         radio.broadcast("collapsibles-expand-collapsible-section", result.id)
         await pause(100)
         offset = window.innerHeight / 8
+      } else if (result.resultType === "bias"){
+        radio.broadcast("collapsibles-expand-collapsible-section", result.substepid)
+        await pause(100)
+        radio.broadcast("collapsibles-expand-collapsible-section", result.id)
+        await pause(100)
+        offset = window.innerHeight / 8
       }
 
       let interval = setInterval(async function(){

@@ -171,6 +171,12 @@
           }))
         })
 
+				if (substep.biases && substep.biases.length > 0){
+					substep.biases.forEach(function(bias){
+						bias.substepid = substep.id
+					})
+				}
+
 				biases = biases.concat(substep.biases || [])
       })
     })
@@ -204,6 +210,7 @@
 			bias.title = bias.name
 			bias.resultType = "bias"
 			bias.color = colors[bias.condition.toLowerCase()]
+			bias.id = makeKey(32)
 			return bias
 		})
 
