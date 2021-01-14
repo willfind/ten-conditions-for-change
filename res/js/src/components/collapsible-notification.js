@@ -3,7 +3,6 @@ let CollapsibleSection = require("./collapsible-section.js")
 
 module.exports = Vue.component("collapsible-notification", {
   mixins: [CollapsibleSection],
-  props: ["icon", "title", "has-close-button"],
 
   template: `
     <div class="notification collapsible-notification" :id="id" :class="{'collapsible-notification-fully-rounded': !isExpanded}">

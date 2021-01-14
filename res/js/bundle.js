@@ -14320,7 +14320,6 @@ let CollapsibleSection = require("./collapsible-section.js")
 
 module.exports = Vue.component("collapsible-notification", {
   mixins: [CollapsibleSection],
-  props: ["icon", "title", "has-close-button"],
 
   template: `
     <div class="notification collapsible-notification" :id="id" :class="{'collapsible-notification-fully-rounded': !isExpanded}">
@@ -14635,6 +14634,8 @@ module.exports = Vue.component("intervention-search-modal", {
       } else if (result.resultType === "bias"){
         radio.broadcast("collapsibles-expand-collapsible-section", result.substepid)
         await pause(100)
+        radio.broadcast("collapsibles-expand-collapsible-section", result.biasesContainerID)
+        await pause(100)
         radio.broadcast("collapsibles-expand-collapsible-section", result.id)
         await pause(100)
         offset = window.innerHeight / 8
@@ -14883,7 +14884,7 @@ module.exports = Vue.component("substep-content", {
         </collapsible-section>
       </notification>
 
-      <collapsible-notification title="Relevant Cognitive Biases & Fallacies" v-if="substep.biases && substep.biases.length > 0">
+      <collapsible-notification title="Relevant Cognitive Biases & Fallacies" v-if="substep.biases && substep.biases.length > 0" :id="substep.biases[0].biasesContainerID">
         <collapsible-section v-for="bias in substep.biases" :title="bias.name" otherHeaderClasses="skinny-collapsible-header" :id="bias.id">
           <div v-html="bias.content"></div>
 

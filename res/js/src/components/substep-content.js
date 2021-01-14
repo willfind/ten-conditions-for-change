@@ -138,7 +138,7 @@ module.exports = Vue.component("substep-content", {
         </collapsible-section>
       </notification>
 
-      <collapsible-notification title="Relevant Cognitive Biases & Fallacies" v-if="substep.biases && substep.biases.length > 0">
+      <collapsible-notification title="Relevant Cognitive Biases & Fallacies" v-if="substep.biases && substep.biases.length > 0" :id="substep.biases[0].biasesContainerID">
         <collapsible-section v-for="bias in substep.biases" :title="bias.name" otherHeaderClasses="skinny-collapsible-header" :id="bias.id">
           <div v-html="bias.content"></div>
 

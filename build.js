@@ -158,6 +158,7 @@
     data.steps.forEach(function(step){
       step.substeps.forEach(function(substep){
         let categories = Object.keys(substep.interventions)
+				let biasesContainerID = makeKey(32)
 
         categories.forEach(function(category){
           let subinterventions = substep.interventions[category].interventions
@@ -174,6 +175,7 @@
 				if (substep.biases && substep.biases.length > 0){
 					substep.biases.forEach(function(bias){
 						bias.substepid = substep.id
+						bias.biasesContainerID = biasesContainerID
 					})
 				}
 

@@ -213,6 +213,8 @@ module.exports = Vue.component("intervention-search-modal", {
       } else if (result.resultType === "bias"){
         radio.broadcast("collapsibles-expand-collapsible-section", result.substepid)
         await pause(100)
+        radio.broadcast("collapsibles-expand-collapsible-section", result.biasesContainerID)
+        await pause(100)
         radio.broadcast("collapsibles-expand-collapsible-section", result.id)
         await pause(100)
         offset = window.innerHeight / 8
