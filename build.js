@@ -201,19 +201,14 @@
     })
 
 		biases = biases.map(function(bias){
-			let out = {}
-
-			Object.keys(bias).forEach(function(key){
-				out[gt.string.toCamelCase(key)] = bias[key]
-			})
-
-			out.title = bias.name
-			out.resultType = "bias"
-			return out
+			bias.title = bias.name
+			bias.resultType = "bias"
+			bias.color = colors[bias.condition.toLowerCase()]
+			return bias
 		})
 
     let pool = interventions.concat(frameworks).concat(biases)
-    let fields = Object.keys(interventions[0]).concat(Object.keys(frameworks[0]))
+    let fields = Object.keys(interventions[0]).concat(Object.keys(frameworks[0])).concat(Object.keys(biases[0]))
 
     pool.forEach(function(item){
       fields.forEach(function(field){
@@ -308,6 +303,7 @@
 
 			let out = {}
 			out.id = makeKey(32)
+			out.condition = condition
 
 			Object.keys(bias).forEach(function(key){
 				out[gt.string.toCamelCase(key)] = bias[key]

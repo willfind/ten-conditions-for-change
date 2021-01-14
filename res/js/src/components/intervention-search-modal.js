@@ -83,6 +83,28 @@ module.exports = Vue.component("intervention-search-modal", {
                   <img class="img-inline" src="res/img/single-arrow.png">
                 </span>
               </span>
+
+              <span v-if="result.resultType === 'bias'">
+                <b>{{ result.title.toUpperCase() }}:</b>
+
+                <span v-html="result.description"></span>
+
+                <span class="chip" :class="{'is-orange': result.color === 'orange', 'is-green': result.color === 'green', 'is-purple': result.color === 'purple'}" @click="goto(result)">
+                  <img class="img-inline" :src="'res/img/' + result.condition.toLowerCase() + '.png'">
+
+                  &nbsp;
+
+                  {{ result.condition.toUpperCase() }}
+
+                  /
+
+                  BIASES & FALLACIES
+
+                  &nbsp;
+
+                  <img class="img-inline" src="res/img/single-arrow.png">
+                </span>
+              </span>
             </div>
 
             <div v-if="results.length === 0 && hasPerformedAtLeastOneSearch">
