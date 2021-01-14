@@ -95,6 +95,10 @@ module.exports = Vue.component("substep-content", {
 
       self.modalIsVisible = true
     },
+
+    isAURL: function(text){
+      return text.substring(0, 4) === "http"
+    },
   },
 
   template: `
@@ -136,6 +140,16 @@ module.exports = Vue.component("substep-content", {
       <notification title="Relevant Cognitive Biases & Fallacies" v-if="substep.biases && substep.biases.length > 0">
         <collapsible-section v-for="bias in substep.biases" :title="bias.name" otherHeaderClasses="skinny-collapsible-header" :id="bias.id">
           <div v-html="bias.content"></div>
+
+          <p v-if="bias.source && bias.source.length > 0">
+            Source:
+
+            <a :href="bias.source" target="_blank" v-if="isAURL(bias.source)">
+              {{ bias.source }}
+            </a>
+
+            <span v-else v-html="bias.source"></span>
+          </p>
         </collapsible-section>
       </notification>
 
