@@ -69,7 +69,7 @@
 		return substep
 	}
 
-	function fetchAndParse(path, interventions){
+	function fetchAndParse(path, interventions, biases){
 		let out = require(path)
 
 		if (out.content){
@@ -98,17 +98,21 @@
 			out.interventions = getInterventions(out.interventions, interventions)
 		}
 
+		if (out.shortTitle && biases){
+			out.biases = biases[out.shortTitle]
+		}
+
 		out.id = makeKey(32)
 		return out
 	}
 
-	function fetchAndParseStep(path, interventions){
+	function fetchAndParseStep(path, interventions, biases){
 		let step = fetchAndParse(path, interventions)
 		step.substeps = []
 
 		for (let i=0; i<step.steps.length; i++){
 			let filename = step.steps[i]
-			let sub = fetchAndParse("./docs/" + filename, interventions)
+			let sub = fetchAndParse("./docs/" + filename, interventions, biases)
 			sub = markUpTitleAndExamples(sub)
 
 			sub.examples = [
@@ -136,6 +140,7 @@
 
 	function getSearchStuff(data){
 		let interventions = []
+		let biases = []
 
     let colors = {
       "considers": "orange",
@@ -165,6 +170,8 @@
             return intervention
           }))
         })
+
+				biases = biases.concat(substep.biases || [])
       })
     })
 
@@ -193,7 +200,19 @@
       return out
     })
 
-    let pool = interventions.concat(frameworks)
+		biases = biases.map(function(bias){
+			let out = {}
+
+			Object.keys(bias).forEach(function(key){
+				out[gt.string.toCamelCase(key)] = bias[key]
+			})
+
+			out.title = bias.name
+			out.resultType = "bias"
+			return out
+		})
+
+    let pool = interventions.concat(frameworks).concat(biases)
     let fields = Object.keys(interventions[0]).concat(Object.keys(frameworks[0]))
 
     pool.forEach(function(item){
@@ -277,33 +296,30 @@
 
 	interventions = tempInterventions
 
-	// add the cognitive biases to the interventions lists
-	biases.forEach(function(bias){
-		let category = bias["Ten Conditions for Change"].split(",")[0]
-		category = category.trim().replace(/\d\. /, "").toUpperCase()
-		let subcategory = "BIASES & FALLACIES"
+	// add the cognitive biases; note that:
+	// - they will no longer be included with the interventions
+	// - they will still need to be added to the search index
+	temp = {}
 
-		if (!interventions[category]) interventions[category] = {}
+	biases.filter(bias => bias["Should use?"].trim() !== "no").forEach(function(bias){
+		try {
+			let condition = bias["Ten Conditions for Change"].split(",")[0].trim().split(".")[1].trim()
+			if (!temp[condition]) temp[condition] = []
 
-		if (!interventions[category][subcategory]){
-			interventions[category][subcategory] = {
-				id: makeKey(32),
-				description: "Strategies that mitigate errors in cognition or reasoning",
-				interventions: [],
-			}
-		}
+			let out = {}
+			out.id = makeKey(32)
 
-		interventions[category][subcategory].interventions.push({
-			"TEN CONDITIONS FOR CHANGE": category,
-			"TEN CONDITIONS FOR CHANGE SUB-CATEGORY": "BIASES & FALLACIES",
-			"METHOD NAME:": bias["Name"],
-			"DESCRIPTION / IMPLEMENTATION STRATEGY:": md.renderInline(bias["Description"] + "\n" + bias["Examples"] + "\n" + bias["Benevolent helper"]),
-			"SOURCE:": bias["Source"],
-			"URL:": bias["Source"],
-			"KEYWORDS": biasesKeywords[bias["Name"]],
-			id: makeKey(32),
-		})
+			Object.keys(bias).forEach(function(key){
+				out[gt.string.toCamelCase(key)] = bias[key]
+			})
+
+			out.content = md.render([out.description, out.experimentalEvidence, out.examples, out.benevolentHelper].join("\n"))
+
+			temp[condition].push(out)
+		} catch(e){}
 	})
+
+	biases = temp
 
 	// define the document structure for the entire page, and then fetch, parse, and render individual documents
 	let data = {
@@ -314,9 +330,9 @@
 		],
 		preface: fetchAndParse("./docs/preface.js", interventions),
 		steps: [
-			fetchAndParseStep("./docs/decision.js", interventions),
-			fetchAndParseStep("./docs/action.js", interventions),
-			fetchAndParseStep("./docs/continuation.js", interventions),
+			fetchAndParseStep("./docs/decision.js", interventions, biases),
+			fetchAndParseStep("./docs/action.js", interventions, biases),
+			fetchAndParseStep("./docs/continuation.js", interventions, biases),
 		],
 		frameworks: {
 			main: fetchAndParse("./docs/other-frameworks.js", interventions),

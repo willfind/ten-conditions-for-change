@@ -14817,6 +14817,13 @@ module.exports = Vue.component("substep-content", {
         </collapsible-section>
       </notification>
 
+      <notification title="Relevant Cognitive Biases & Fallacies">
+        <div v-for="bias in substep.biases">
+          <p><b>{{ bias.name }}</b></p>
+          <div v-html="bias.content"></div>
+        </div>
+      </notification>
+
       <modal :is-visible="modalIsVisible" @close="modalIsVisible=false">
         <notification title="Source" :has-close-button="true" @close="modalIsVisible=false">
           <div v-html="modalContent"></div>
