@@ -2,6 +2,7 @@ let Vue = require("vue/dist/vue.min")
 require("./modal.js")
 require("./notification.js")
 require("./collapsible-section.js")
+require("./collapsible-notification.js")
 
 module.exports = Vue.component("substep-content", {
   props: ["substep"],
@@ -137,7 +138,7 @@ module.exports = Vue.component("substep-content", {
         </collapsible-section>
       </notification>
 
-      <notification title="Relevant Cognitive Biases & Fallacies" v-if="substep.biases && substep.biases.length > 0">
+      <collapsible-notification title="Relevant Cognitive Biases & Fallacies" v-if="substep.biases && substep.biases.length > 0">
         <collapsible-section v-for="bias in substep.biases" :title="bias.name" otherHeaderClasses="skinny-collapsible-header" :id="bias.id">
           <div v-html="bias.content"></div>
 
@@ -151,7 +152,7 @@ module.exports = Vue.component("substep-content", {
             <span v-else v-html="bias.source"></span>
           </p>
         </collapsible-section>
-      </notification>
+      </collapsible-notification>
 
       <modal :is-visible="modalIsVisible" @close="modalIsVisible=false">
         <notification title="Source" :has-close-button="true" @close="modalIsVisible=false">

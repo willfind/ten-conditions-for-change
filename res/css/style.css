@@ -617,6 +617,19 @@ blockquote *:last-child {
   padding: 1rem;
 }
 
+.collapsible-notification {
+  cursor: pointer;
+}
+
+.collapsible-notification .notification-header {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.collapsible-notification-fully-rounded .notification-header {
+  border-radius: var(--big-border-radius);
+}
+
 .modal {
   position: fixed;
   z-index: 100;
