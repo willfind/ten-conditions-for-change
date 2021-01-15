@@ -64,6 +64,29 @@ module.exports = {
 
 		<hr class="little">
 
+		**Condition Statuses**
+
+		Each of the conditions can have one of three statuses:
+
+		- **met** = this condition is already met, is likely to be met, or is usually met by the target population; therefore this condition should _not_ be a target for improvement
+		- **unmet** = this condition is not met, is unlikely to be met, or is often not met by the target population; therefore this condition _should_ be a target for improvement
+		- **unknown** = it is unknown whether or not this condition is met; therefore more research is needed to understand whether this condition should be a target for improvement
+
+		As you're thinking about trying to get someone (yourself or a target population) to adopt a new, positive behavior, consider the status of each of the ten conditions relative to that behavior. If a condition has already been met, then you will most likely not need to focus on it in your behavioral intervention. If a condition has not been met, then you'll want to select and apply interventions to ensure that the condition gets met.
+
+		It's also important to note that the above statuses aren't black and white: it's possible that a condition might be met 70% of the time, or met by just 70% of the population, or unknown among 70% of the population, etc.  Thus, it may be necessary to set thresholds for the statuses to determine that a condition is met well enough that it is no longer a bottleneck for the behavior. For example, you might say to yourself, “When 70% of the population meets a condition, I'll consider that condition to have been ‘met.'” Or, “A condition will no longer have a status of ‘unknown' once I have information about at least 70% of the population.” It is unlikely that 100% of the population will meet a condition 100% of the time, and waiting for such an ideal state of affairs is unrealistic in many situations. The key question is: "Has this condition been met to a sufficient degree that it is no longer preventing adoption of the new, positive behavior?"
+
+		If you're not sure whether or not a condition has been met, then it's very important to gather more information in order to figure out whether it needs to be a focus. If you decide that you need to gather more information about a particular condition, then consider possible information gathering methods, like:
+
+		- interviewing or surveying the target population to understand their current behaviors and the forces that drive their behaviors
+		- discussing the matter with experts
+		- reading academic studies and papers
+		- analyzing the data you may already have collected from existing users, or analyzing data that others have collected on the target population
+
+		Select and implement whichever information gathering methods seems most likely to answer the question about how well the condition has been met.
+
+		<hr class="little">
+
 		**Other Considerations**
 
 		In practice, given your role, your resources, and the nature of the problem, you may only be capable of influencing some of the ten conditions in this framework and not others. Similarly, not all of the conditions are equally likely to improve. If multiple conditions for change are not met, you will likely want to focus first on the one or two that would be easiest or most cost-effective to change; but it may still be worth analyzing the other remaining conditions anyway to make sure that the conditions outside of your control don't doom your project to failure.
