@@ -64,7 +64,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Condition Statuses**
+		**Statuses**
 
 		Each of the conditions can have one of three statuses:
 
