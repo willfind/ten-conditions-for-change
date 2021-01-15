@@ -14471,7 +14471,7 @@ module.exports = Vue.component("intervention-search-modal", {
           </form>
 
           <div class="search-results-container">
-            <div class="search-result" v-for="result in results" v-if="results.length > 0">
+            <div class="search-result" v-for="result in results" v-if="results.length > 0" @click="goto(result)">
               <span v-if="result.resultType === 'intervention'">
                 <b>{{ result.methodName }}:</b>
                 <span v-html="result.descriptionImplementationStrategy"></span>

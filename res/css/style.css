@@ -693,7 +693,14 @@ blockquote *:last-child {
 }
 
 .search-result {
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
+  padding: 0.5em;
+  border-radius: var(--little-border-radius);
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background-color: var(--light-gray);
 }
 
 .chip {
