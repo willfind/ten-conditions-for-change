@@ -11,6 +11,7 @@
 	let md = new MarkdownIt({
 		html: true,
 		xhtmlOut: true,
+		typographer: true,
 	}).disable(["code", "fence"])
 
 	// ======================= //
