@@ -14782,6 +14782,16 @@ module.exports = Vue.component("substep-content", {
   },
 
   methods: {
+    range: function(min, max){
+      let out = []
+      for (let i=min; i<max; i++) out.push(i)
+      return out
+    },
+
+    max: function(a, b){
+      return a > b ? a : b
+    },
+
     getSubcategoryTitle: function(subcategory){
       let self = this
       let obj = self.substep.interventions[subcategory]
@@ -14842,10 +14852,6 @@ module.exports = Vue.component("substep-content", {
 
       self.modalIsVisible = true
     },
-
-    isAURL: function(text){
-      return text.substring(0, 4) === "http"
-    },
   },
 
   template: `
@@ -14888,15 +14894,21 @@ module.exports = Vue.component("substep-content", {
         <collapsible-section v-for="bias in substep.biases" :title="bias.name" otherHeaderClasses="skinny-collapsible-header" :id="bias.id">
           <div v-html="bias.content"></div>
 
-          <p v-if="bias.source && bias.source.length > 0">
-            Source:
+          <div v-if="bias.sourceUrls.length > 0 || bias.sourceDescriptions.length > 0" style="margin-bottom: 1em;">
+            <p>Source(s):</p>
 
-            <a :href="bias.source" target="_blank" v-if="isAURL(bias.source)">
-              {{ bias.source }}
-            </a>
+            <ul>
+              <li v-for="i in range(0, max(bias.sourceUrls.length, bias.sourceDescriptions.length))">
+                <a v-if="bias.sourceUrls[i]" :href="bias.sourceUrls[i]" target="_blank">
+                  {{ bias.sourceDescriptions[i] ? bias.sourceDescriptions[i] : bias.sourceUrls[i] }}
+                </a>
 
-            <span v-else v-html="bias.source"></span>
-          </p>
+                <span v-else>
+                  {{ bias.sourceDescriptions[i] }}
+                </span>
+              </li>
+            </ul>
+          </div>
         </collapsible-section>
       </collapsible-notification>
 

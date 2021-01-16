@@ -306,7 +306,7 @@
 	// - they will still need to be added to the search index
 	temp = {}
 
-	biases.filter(bias => bias["Should use?"].trim() !== "no").forEach(function(bias){
+	biases.filter(bias => bias["Should use?"].trim().toLowerCase() !== "no").forEach(function(bias){
 		try {
 			let condition = bias["Ten Conditions for Change"].split(",")[0].trim().split(".")[1].trim()
 			if (!temp[condition]) temp[condition] = []
@@ -320,6 +320,9 @@
 			})
 
 			out.content = md.render([out.description, out.experimentalEvidence, out.examples, out.benevolentHelper].join("\n"))
+
+			out.sourceUrls = out.sourceUrls.split("\n").map(url => url.trim()).filter(url => url.length > 0)
+			out.sourceDescriptions = out.sourceDescriptions.split("\n").map(desc => desc.trim()).filter(desc => desc.length > 0)
 
 			temp[condition].push(out)
 		} catch(e){}
