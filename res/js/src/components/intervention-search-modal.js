@@ -50,7 +50,7 @@ module.exports = Vue.component("intervention-search-modal", {
           </form>
 
           <div class="search-results-container">
-            <div class="search-result" v-for="result in results" v-if="results.length > 0">
+            <div class="search-result" v-for="result in results" v-if="results.length > 0" @click="goto(result)">
               <span v-if="result.resultType === 'intervention'">
                 <b>{{ result.methodName }}:</b>
                 <span v-html="result.descriptionImplementationStrategy"></span>
@@ -77,6 +77,28 @@ module.exports = Vue.component("intervention-search-modal", {
 
                 <span class="chip is-gray" @click="goto(result)">
                   {{ result.title }}
+
+                  &nbsp;
+
+                  <img class="img-inline" src="res/img/single-arrow.png">
+                </span>
+              </span>
+
+              <span v-if="result.resultType === 'bias'">
+                <b>{{ result.title.toUpperCase() }}:</b>
+
+                <span v-html="result.description"></span>
+
+                <span class="chip" :class="{'is-orange': result.color === 'orange', 'is-green': result.color === 'green', 'is-purple': result.color === 'purple'}" @click="goto(result)">
+                  <img class="img-inline" :src="'res/img/' + result.condition.toLowerCase() + '.png'">
+
+                  &nbsp;
+
+                  {{ result.condition.toUpperCase() }}
+
+                  /
+
+                  BIASES & FALLACIES
 
                   &nbsp;
 
@@ -185,6 +207,14 @@ module.exports = Vue.component("intervention-search-modal", {
         await pause(100)
         offset = window.innerHeight / 3
       } else if (result.resultType === "framework"){
+        radio.broadcast("collapsibles-expand-collapsible-section", result.id)
+        await pause(100)
+        offset = window.innerHeight / 8
+      } else if (result.resultType === "bias"){
+        radio.broadcast("collapsibles-expand-collapsible-section", result.substepid)
+        await pause(100)
+        radio.broadcast("collapsibles-expand-collapsible-section", result.biasesContainerID)
+        await pause(100)
         radio.broadcast("collapsibles-expand-collapsible-section", result.id)
         await pause(100)
         offset = window.innerHeight / 8

@@ -617,6 +617,16 @@ blockquote *:last-child {
   padding: 1rem;
 }
 
+.collapsible-notification .notification-header {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  cursor: pointer;
+}
+
+.collapsible-notification-fully-rounded .notification-header {
+  border-radius: var(--big-border-radius);
+}
+
 .modal {
   position: fixed;
   z-index: 100;
@@ -683,7 +693,14 @@ blockquote *:last-child {
 }
 
 .search-result {
-  margin-bottom: 1em;
+  /* margin-bottom: 1em; */
+  padding: 0.5em;
+  border-radius: var(--little-border-radius);
+  cursor: pointer;
+}
+
+.search-result:hover {
+  background-color: var(--light-gray);
 }
 
 .chip {

@@ -11,6 +11,7 @@
 	let md = new MarkdownIt({
 		html: true,
 		xhtmlOut: true,
+		typographer: true,
 	}).disable(["code", "fence"])
 
 	// ======================= //
@@ -69,7 +70,7 @@
 		return substep
 	}
 
-	function fetchAndParse(path, interventions){
+	function fetchAndParse(path, interventions, biases){
 		let out = require(path)
 
 		if (out.content){
@@ -98,17 +99,21 @@
 			out.interventions = getInterventions(out.interventions, interventions)
 		}
 
+		if (out.shortTitle && biases){
+			out.biases = biases[out.shortTitle]
+		}
+
 		out.id = makeKey(32)
 		return out
 	}
 
-	function fetchAndParseStep(path, interventions){
+	function fetchAndParseStep(path, interventions, biases){
 		let step = fetchAndParse(path, interventions)
 		step.substeps = []
 
 		for (let i=0; i<step.steps.length; i++){
 			let filename = step.steps[i]
-			let sub = fetchAndParse("./docs/" + filename, interventions)
+			let sub = fetchAndParse("./docs/" + filename, interventions, biases)
 			sub = markUpTitleAndExamples(sub)
 
 			sub.examples = [
@@ -136,6 +141,7 @@
 
 	function getSearchStuff(data){
 		let interventions = []
+		let biases = []
 
     let colors = {
       "considers": "orange",
@@ -153,6 +159,7 @@
     data.steps.forEach(function(step){
       step.substeps.forEach(function(substep){
         let categories = Object.keys(substep.interventions)
+				let biasesContainerID = makeKey(32)
 
         categories.forEach(function(category){
           let subinterventions = substep.interventions[category].interventions
@@ -165,6 +172,15 @@
             return intervention
           }))
         })
+
+				if (substep.biases && substep.biases.length > 0){
+					substep.biases.forEach(function(bias){
+						bias.substepid = substep.id
+						bias.biasesContainerID = biasesContainerID
+					})
+				}
+
+				biases = biases.concat(substep.biases || [])
       })
     })
 
@@ -193,8 +209,16 @@
       return out
     })
 
-    let pool = interventions.concat(frameworks)
-    let fields = Object.keys(interventions[0]).concat(Object.keys(frameworks[0]))
+		biases = biases.map(function(bias){
+			bias.title = bias.name
+			bias.resultType = "bias"
+			bias.color = colors[bias.condition.toLowerCase()]
+			bias.id = makeKey(32)
+			return bias
+		})
+
+    let pool = interventions.concat(frameworks).concat(biases)
+    let fields = Object.keys(interventions[0]).concat(Object.keys(frameworks[0])).concat(Object.keys(biases[0]))
 
     pool.forEach(function(item){
       fields.forEach(function(field){
@@ -228,6 +252,8 @@
 	// load the interventions data
 	let interventions = await csv().fromFile("./docs/interventions.csv")
 	let subcategories = await csv().fromFile("./docs/interventions-subcategories.csv")
+	let biases = await csv().fromFile("./docs/biases.csv")
+	let biasesKeywords = JSON.parse(fs.readFileSync("./docs/biases-keywords.json", "utf8"))
 
 	// compile the subcategory data from individual objects (each representing a line from the CSV file) into one big object
 	let tempSubcategories = {}
@@ -275,6 +301,35 @@
 
 	interventions = tempInterventions
 
+	// add the cognitive biases; note that:
+	// - they will no longer be included with the interventions
+	// - they will still need to be added to the search index
+	temp = {}
+
+	biases.filter(bias => bias["Should use?"].trim().toLowerCase() !== "no").forEach(function(bias){
+		try {
+			let condition = bias["Ten Conditions for Change"].split(",")[0].trim().split(".")[1].trim()
+			if (!temp[condition]) temp[condition] = []
+
+			let out = {}
+			out.id = makeKey(32)
+			out.condition = condition
+
+			Object.keys(bias).forEach(function(key){
+				out[gt.string.toCamelCase(key)] = bias[key]
+			})
+
+			out.content = md.render([out.description, out.experimentalEvidence, out.examples, out.benevolentHelper].join("\n"))
+
+			out.sourceUrls = out.sourceUrls.split("\n").map(url => url.trim()).filter(url => url.length > 0)
+			out.sourceDescriptions = out.sourceDescriptions.split("\n").map(desc => desc.trim()).filter(desc => desc.length > 0)
+
+			temp[condition].push(out)
+		} catch(e){}
+	})
+
+	biases = temp
+
 	// define the document structure for the entire page, and then fetch, parse, and render individual documents
 	let data = {
 		intro: [
@@ -284,9 +339,9 @@
 		],
 		preface: fetchAndParse("./docs/preface.js", interventions),
 		steps: [
-			fetchAndParseStep("./docs/decision.js", interventions),
-			fetchAndParseStep("./docs/action.js", interventions),
-			fetchAndParseStep("./docs/continuation.js", interventions),
+			fetchAndParseStep("./docs/decision.js", interventions, biases),
+			fetchAndParseStep("./docs/action.js", interventions, biases),
+			fetchAndParseStep("./docs/continuation.js", interventions, biases),
 		],
 		frameworks: {
 			main: fetchAndParse("./docs/other-frameworks.js", interventions),
@@ -307,6 +362,7 @@
 				fetchAndParse("./docs/other-frameworks-14.js", interventions),
 				fetchAndParse("./docs/other-frameworks-15.js", interventions),
 				fetchAndParse("./docs/other-frameworks-16.js", interventions),
+				fetchAndParse("./docs/other-frameworks-17.js", interventions),
 			].sort(sortByYear),
 		},
 	}

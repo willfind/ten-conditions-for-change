@@ -2,6 +2,7 @@ let Vue = require("vue/dist/vue.min")
 require("./modal.js")
 require("./notification.js")
 require("./collapsible-section.js")
+require("./collapsible-notification.js")
 
 module.exports = Vue.component("substep-content", {
   props: ["substep"],
@@ -23,11 +24,28 @@ module.exports = Vue.component("substep-content", {
         out.push(other)
       }
 
+      let biases = out.filter(item => item.toUpperCase().includes("BIASES & FALLACIES"))[0]
+
+      if (biases && biases.length > 0){
+        biases = out.splice(out.indexOf(biases), 1)[0]
+        out.push(biases)
+      }
+
       return out
     },
   },
 
   methods: {
+    range: function(min, max){
+      let out = []
+      for (let i=min; i<max; i++) out.push(i)
+      return out
+    },
+
+    max: function(a, b){
+      return a > b ? a : b
+    },
+
     getSubcategoryTitle: function(subcategory){
       let self = this
       let obj = self.substep.interventions[subcategory]
@@ -39,6 +57,14 @@ module.exports = Vue.component("substep-content", {
           ${ title }
         </span>
       `
+
+      if (title === "BIASES & FALLACIES"){
+        out += `
+          <span>
+            <img src="res/img/noun_Error_1582579.svg" class="img-inline">
+          </span>
+        `
+      }
 
       if (description){
         out += `
@@ -117,6 +143,28 @@ module.exports = Vue.component("substep-content", {
           </ul>
         </collapsible-section>
       </notification>
+
+      <collapsible-notification title="Relevant Cognitive Biases & Fallacies" v-if="substep.biases && substep.biases.length > 0" :id="substep.biases[0].biasesContainerID">
+        <collapsible-section v-for="bias in substep.biases" :title="bias.name" otherHeaderClasses="skinny-collapsible-header" :id="bias.id">
+          <div v-html="bias.content"></div>
+
+          <div v-if="bias.sourceUrls.length > 0 || bias.sourceDescriptions.length > 0" style="margin-bottom: 1em;">
+            <p>Source(s):</p>
+
+            <ul>
+              <li v-for="i in range(0, max(bias.sourceUrls.length, bias.sourceDescriptions.length))">
+                <a v-if="bias.sourceUrls[i]" :href="bias.sourceUrls[i]" target="_blank">
+                  {{ bias.sourceDescriptions[i] ? bias.sourceDescriptions[i] : bias.sourceUrls[i] }}
+                </a>
+
+                <span v-else>
+                  {{ bias.sourceDescriptions[i] }}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </collapsible-section>
+      </collapsible-notification>
 
       <modal :is-visible="modalIsVisible" @close="modalIsVisible=false">
         <notification title="Source" :has-close-button="true" @close="modalIsVisible=false">
