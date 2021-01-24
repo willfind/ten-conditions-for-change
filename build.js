@@ -253,7 +253,6 @@
 	let interventions = await csv().fromFile("./docs/interventions.csv")
 	let subcategories = await csv().fromFile("./docs/interventions-subcategories.csv")
 	let biases = await csv().fromFile("./docs/biases.csv")
-	let biasesKeywords = JSON.parse(fs.readFileSync("./docs/biases-keywords.json", "utf8"))
 
 	// compile the subcategory data from individual objects (each representing a line from the CSV file) into one big object
 	let tempSubcategories = {}
@@ -320,6 +319,7 @@
 			})
 
 			out.content = md.render([out.description, out.examples, out.benevolentHelper].join("\n\n"))
+			out.description = md.renderInline(out.description)
 
 			out.sourceUrls = out.sourceUrls.split("\n").map(url => url.trim()).filter(url => url.length > 0)
 			out.sourceDescriptions = out.sourceDescriptions.split("\n").map(desc => desc.trim()).filter(desc => desc.length > 0)
