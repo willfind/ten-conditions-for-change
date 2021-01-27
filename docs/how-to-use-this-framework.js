@@ -7,17 +7,15 @@ module.exports = {
 	content: `
 		Below, we've laid out how to use this framework to create a new, positive behavior, whether in your own life or in the lives of a target population.
 
-		**Step 1: Consider Outcomes**
+		**Step 1: Consider Outcomes & Brainstorm Behaviors**
 
 		If you don't already have a desired behavior in mind, or if you are unsure that the behavior you have in mind would create significant benefits, then we recommend instead starting by writing down an outcome or benefit that you'd like to achieve. Next, brainstorm a list of many possible behaviors that could lead to that outcome. Once you've come up with a list of possible behaviors, pick the behavior that you believe would yield the largest positive benefit relative to how difficult you think it would be to create that behavior. Then, carry out the following steps on the chosen behavior.
 
 		To simplify this process, we've created [an interactive program](https://www.guidedtrack.com/programs/1ttwh43/run) to help you walk through these steps!
 
-		Once you've got the desired behavior in mind, you're ready to begin!
-
 		**Step 2: Select Behavior**
 
-		Pick a concrete, positive behavior you'd like to create and a specific person or population who would ideally engage in this behavior. This behavior should be targeted at improving the world or (if the target person is you) improving your own life. Ideally, you should consider multiple options for positive behaviors, and then choose among them based on how much positive benefit you predict they would cause and how hard they would be to create.
+		Of the list of concrete, positive behaviors you brainstormed, pick one you'd like to create, and identify a specific person or population who would ideally engage in this behavior. This behavior should be targeted at improving the world or (if the target person is you) improving your own life. Ideally, you should consider multiple options for positive behaviors, and then choose among them based on how much positive benefit you predict they would cause and how hard they would be to create.
 
 		Alternatively, you could pick a past behavior change effort that failed and perform a "postmortem" analysis to try to figure out what went wrong with it. Ask yourself, "What positive outcome do I want? And what behavior adopted by which population would potentially achieve this outcome?" or "What behavior change did I fail to achieve in the past?"
 
