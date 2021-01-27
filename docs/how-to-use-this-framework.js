@@ -46,7 +46,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 4: Consider <span class="is-highlighted is-orange">DECISION</span> Conditions**
+		**Step 4: Consider the <span class="is-highlighted is-orange">DECISION</span> Conditions**
 
 		Now we are going to apply the <span class="is-highlighted is-orange">DECISION</span> phase of the Ten Conditions for Change framework to the behavior that you selected. For each of the three conditions for change in the <span class="is-highlighted is-orange">DECISION</span> phase, ask yourself, "To what extent is this condition met by this person?" or "What percentage of people in this population meet this condition?"
 
@@ -54,7 +54,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 5: Break Behavior into <span class="is-highlighted is-green">ACTION</span> Sequences**
+		**Step 5: Break the Behavior into <span class="is-highlighted is-green">ACTION</span> Sequences**
 
 		Then, break the behavior down into a series of actions that a person can perform to fully succeed at the behavior.
 
@@ -64,7 +64,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 6: Consider <span class="is-highlighted is-green">ACTION</span> Conditions**
+		**Step 6: Consider the <span class="is-highlighted is-green">ACTION</span> Conditions**
 
 		Once you have settled on a sequence of actions that constitute the positive behavior, then you'll want to think about those actions individually. For each distinct type of action, consider each of the six conditions for change in the <span class="is-highlighted is-green">ACTION</span> phase, and ask yourself, "To what extent is this condition met by this person?" or "What percentage of people in this population meet this condition?"
 
