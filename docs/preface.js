@@ -9,7 +9,7 @@ module.exports = {
 
 		Here you will find our step-by-step behavior change framework (the "Ten Conditions for Change") along with our behavioral strategy search engine and concise summaries of seventeen other useful frameworks.
 
-		You can use the Ten Conditions for Change to help others (e.g., through healthier eating habits or vaccine adoption) or to create a positive change in your own life (e.g., by getting yourself to go to the gym more often or to practice daily meditation).
+		You can use the Ten Conditions for Change to help others (e.g., through creating healthier eating behaviors or increasing vaccine adoption) or to create a positive change in your own life (e.g., by getting yourself to exercise more or practice relaxation techniques daily).
 
 		The "ten conditions" in this framework are designed to be _sufficient_ for creating a new positive behavior. Read on to learn how the framework works.
 

@@ -7,13 +7,23 @@ module.exports = {
 	content: `
 		Below, we've laid out how to use this framework to create a new, positive behavior, whether in your own life or in the lives of a target population.
 
-		**Step 1: Consider Outcomes & Brainstorm Behaviors**
+		**Step 1: Choose Target Population**
 
-		If you don't already have a desired behavior in mind, or if you are unsure that the behavior you have in mind would create significant benefits, then we recommend instead starting by writing down an outcome or benefit that you'd like to achieve. Next, brainstorm a list of many possible behaviors that could lead to that outcome. Once you've come up with a list of possible behaviors, pick the behavior that you believe would yield the largest positive benefit relative to how difficult you think it would be to create that behavior. Then, carry out the following steps on the chosen behavior.
+		Decide what population or person (it could be yourself!) whose lives you aim to improve via positive behavior change.
 
-		To simplify this process, we've created [an interactive program](https://www.guidedtrack.com/programs/1ttwh43/run) to help you walk through these steps!
+		<hr class="little">
 
-		**Step 2: Select Behavior**
+		**Step 2: Consider Outcomes & Brainstorm Behaviors**
+
+		If you have already selected the positive behavior you are aiming to create and you are confident that it is a good choice to produce positive outcomes, you can skip to the next step.
+
+		Otherwise, we recommend writing down a positive outcome or benefit you'd like to help create for the target population.
+
+		Now, brainstorm a list of many possible new (or currently infrequent) behaviors that could lead to that positive outcome. Once you’ve come up with a list of possible behaviors, pick the behavior that you believe would yield the largest positive benefit to the target population relative to how difficult you think it would be to create that behavior.
+
+		<hr class="little">
+
+		**Step 3: Select Behavior**
 
 		Of the list of concrete, positive behaviors you brainstormed, pick one you'd like to create, and identify a specific person or population who would ideally engage in this behavior. This behavior should be targeted at improving the world or (if the target person is you) improving your own life. Ideally, you should consider multiple options for positive behaviors, and then choose among them based on how much positive benefit you predict they would cause and how hard they would be to create.
 
@@ -23,7 +33,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 3: Consider <span class="is-highlighted is-orange">DECISION</span> Conditions**
+		**Step 4: Consider <span class="is-highlighted is-orange">DECISION</span> Conditions**
 
 		For each of the three conditions for change in the <span class="is-highlighted is-orange">DECISION</span> phase, ask yourself, "To what extent is this condition met by this person?" or "What percentage of people in this population meet this condition?"
 
@@ -31,7 +41,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 4: Break Behavior into <span class="is-highlighted is-green">ACTION</span> Sequences**
+		**Step 5: Break Behavior into <span class="is-highlighted is-green">ACTION</span> Sequences**
 
 		Then, break the behavior down into a series of actions that a person can perform to fully succeed at the behavior.
 
@@ -41,7 +51,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 5: Consider <span class="is-highlighted is-green">ACTION</span> Conditions**
+		**Step 6: Consider <span class="is-highlighted is-green">ACTION</span> Conditions**
 
 		Once you have settled on a sequence of actions that constitute the positive behavior, then you'll want to think about those actions individually. For each distinct type of action, consider each of the six conditions for change in the <span class="is-highlighted is-green">ACTION</span> phase, and ask yourself, "To what extent is this condition met by this person?" or "What percentage of people in this population meet this condition?"
 
@@ -49,7 +59,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 6: Consider the <span class="is-highlighted is-purple">CONTINUATION</span> Condition**
+		**Step 7: Consider the <span class="is-highlighted is-purple">CONTINUATION</span> Condition**
 
 		Then, review the condition for change in the <span class="is-highlighted is-purple">CONTINUATION</span> phase, and ask yourself, "Is it likely that the conditions in the <span class="is-highlighted is-orange">DECISION</span> and <span class="is-highlighted is-green">ACTION</span> phase may shift for the worse as time passes or as some of the actions are completed? If so, when, where, and how will the process break down in the future?"
 
@@ -57,7 +67,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 7: Choose Strategies**
+		**Step 8: Choose Strategies**
 
 		As you review all of the conditions mentioned, keep in mind that it often turns out that some of the conditions will already be met automatically and so require no work, whereas others will only be met if appropriate interventions are used.
 
