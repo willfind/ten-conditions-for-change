@@ -5,37 +5,50 @@ module.exports = {
 	title: "HOW TO USE THIS FRAMEWORK",
 
 	content: `
-		Below, we've laid out how to use this framework to create a new, positive behavior, whether in your own life or in the lives of a target population.
+		The Ten Conditions for Change framework can be used for two purposes. First, it can be used to create a new behavior in a target population; and second, it can be used to perform a "postmortem" analysis to try to figure out why a past attempted behavior change failed.
 
-		**Step 1: Choose Target Population**
-
-		Select a population or person (it could be yourself!) whose lives you aim to improve via positive behavior change.
+		Here is a step-by-step guide for using the Ten Conditions for Change to create a new, beneficial behavior:
 
 		<hr class="little">
 
-		**Step 2: Consider Outcomes & Brainstorm Behaviors**
+		**Step 1: Choose a Target Population**
 
-		If you have already selected the positive behavior you are aiming to create and you are confident that it is a good choice to produce positive outcomes, you can skip to the next step.
+		Select a population or person (it could be yourself!) who you are aiming to benefit via positive behavior change.
 
-		Otherwise, we recommend writing down a positive outcome or benefit you'd like to help create for the target population.
-
-		Now, brainstorm a list of many possible new (or currently infrequent) behaviors that could lead to that positive outcome. Once you’ve come up with a list of possible behaviors, pick the behavior that you believe would yield the largest positive benefit to the target population relative to how difficult you think it would be to create that behavior.
+		**Example:** Perhaps your target population is children in your region who are suffering from high numbers of cases of Hepatitis B.
 
 		<hr class="little">
 
-		**Step 3: Select Behavior**
+		**Step 2: Consider the Desired Outcomes & Brainstorm Behaviors**
 
-		Of the list of concrete, positive behaviors you brainstormed, pick one you'd like to create, and identify a specific person or population who would ideally engage in this behavior. This behavior should be targeted at improving the world or (if the target person is you) improving your own life. Ideally, you should consider multiple options for positive behaviors, and then choose among them based on how much positive benefit you predict they would cause and how hard they would be to create.
+		If you have already selected the behavior you are aiming to create in the target population, and you are confident it is a good choice to produce positive outcomes (relative to its difficulty of implementation) skip now to step 4.
 
-		Alternatively, you could pick a past behavior change effort that failed and perform a "postmortem" analysis to try to figure out what went wrong with it. Ask yourself, "What positive outcome do I want? And what behavior adopted by which population would potentially achieve this outcome?" or "What behavior change did I fail to achieve in the past?"
+		Otherwise, we recommend writing down the primary positive outcome or benefit that you're aiming to create for the target population.
 
-		**Example:** If you hope to fight Hepatitis B, and parents in a given region often don't vaccinate their children, then you might decide that the behavior you want to create is for parents to bring their children in for Hepatitis B vaccinations.
+		Once you have done that, brainstorm a list of many possible new behaviors (or behaviors that are currently only done infrequently) that could lead to that positive outcome or benefit.
+
+		After you've come up with this list of possible target behaviors, for each one consider:
+
+		<ol style="list-style-type: lower-alpha;">
+			<li>how much benefit it would create for the target population if they were to engage in this behavior reliably, and</li>
+			<li>how difficult it would be to create that behavior.</li>
+		</ol>
+
+		**Example:** If your target outcome is a reduction in cases of Hepatitis B among children in your region, you might consider target behaviors like (i) parental testing (to prevent transmission to children), (ii) early childhood vaccination, or (iii) adolescent vaccination.
+
+		<hr class="little">
+
+		**Step 3: Select the Behavior**
+
+		Of the list of concrete, positive behaviors you brainstormed, pick the one that you believe has the best ratio of positive outcomes for your target population relative to its difficulty of implementation.
+
+		**Example:** If you hope to fight Hepatitis B, and parents in your region often don't vaccinate their children, then you might decide that the behavior you want to create is for parents to bring their children in for Hepatitis B vaccinations at the appropriate times.
 
 		<hr class="little">
 
 		**Step 4: Consider <span class="is-highlighted is-orange">DECISION</span> Conditions**
 
-		For each of the three conditions for change in the <span class="is-highlighted is-orange">DECISION</span> phase, ask yourself, "To what extent is this condition met by this person?" or "What percentage of people in this population meet this condition?"
+		Now we are going to apply the <span class="is-highlighted is-orange">DECISION</span> phase of the Ten Conditions for Change framework to the behavior that you selected. For each of the three conditions for change in the <span class="is-highlighted is-orange">DECISION</span> phase, ask yourself, "To what extent is this condition met by this person?" or "What percentage of people in this population meet this condition?"
 
 		**Example:** If parents in your target region largely don't know about Hepatitis B vaccines for children, then you'll need to help them meet the "Considers" condition. If they do know about the vaccine but don't understand the benefit of vaccination, then you'll need to help them meet the "Desires" condition. If parents do want to vaccinate their children but don't know when or where to get the vaccines, and hence have no plan to follow through on vaccinating their children, then you'll need to help them meet the "Intends" condition.
 
