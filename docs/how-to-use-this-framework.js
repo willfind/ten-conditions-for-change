@@ -5,7 +5,9 @@ module.exports = {
 	title: "HOW TO USE THIS FRAMEWORK",
 
 	content: `
-		Below, we've laid out how to use this framework to create a new, positive behavior, whether in your own life or in the lives of a target population. These steps assume that you already have a desired behavior in mind that you know would create significant benefits (if it was adopted).
+		Below, we've laid out how to use this framework to create a new, positive behavior, whether in your own life or in the lives of a target population.
+
+		**Step 1: Consider Outcomes**
 
 		If you don't already have a desired behavior in mind, or if you are unsure that the behavior you have in mind would create significant benefits, then we recommend instead starting by writing down an outcome or benefit that you'd like to achieve. Next, brainstorm a list of many possible behaviors that could lead to that outcome. Once you've come up with a list of possible behaviors, pick the behavior that you believe would yield the largest positive benefit relative to how difficult you think it would be to create that behavior. Then, carry out the following steps on the chosen behavior.
 
@@ -13,7 +15,7 @@ module.exports = {
 
 		Once you've got the desired behavior in mind, you're ready to begin!
 
-		**Step 1: Select Behavior**
+		**Step 2: Select Behavior**
 
 		Pick a concrete, positive behavior you'd like to create and a specific person or population who would ideally engage in this behavior. This behavior should be targeted at improving the world or (if the target person is you) improving your own life. Ideally, you should consider multiple options for positive behaviors, and then choose among them based on how much positive benefit you predict they would cause and how hard they would be to create.
 
@@ -23,7 +25,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 2: Consider <span class="is-highlighted is-orange">DECISION</span> Conditions**
+		**Step 3: Consider <span class="is-highlighted is-orange">DECISION</span> Conditions**
 
 		For each of the three conditions for change in the <span class="is-highlighted is-orange">DECISION</span> phase, ask yourself, "To what extent is this condition met by this person?" or "What percentage of people in this population meet this condition?"
 
@@ -31,7 +33,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 3: Break Behavior into <span class="is-highlighted is-green">ACTION</span> Sequences**
+		**Step 4: Break Behavior into <span class="is-highlighted is-green">ACTION</span> Sequences**
 
 		Then, break the behavior down into a series of actions that a person can perform to fully succeed at the behavior.
 
@@ -41,7 +43,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 4: Consider <span class="is-highlighted is-green">ACTION</span> Conditions**
+		**Step 5: Consider <span class="is-highlighted is-green">ACTION</span> Conditions**
 
 		Once you have settled on a sequence of actions that constitute the positive behavior, then you'll want to think about those actions individually. For each distinct type of action, consider each of the six conditions for change in the <span class="is-highlighted is-green">ACTION</span> phase, and ask yourself, "To what extent is this condition met by this person?" or "What percentage of people in this population meet this condition?"
 
@@ -49,7 +51,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 5: Consider the <span class="is-highlighted is-purple">CONTINUATION</span> Condition**
+		**Step 6: Consider the <span class="is-highlighted is-purple">CONTINUATION</span> Condition**
 
 		Then, review the condition for change in the <span class="is-highlighted is-purple">CONTINUATION</span> phase, and ask yourself, "Is it likely that the conditions in the <span class="is-highlighted is-orange">DECISION</span> and <span class="is-highlighted is-green">ACTION</span> phase may shift for the worse as time passes or as some of the actions are completed? If so, when, where, and how will the process break down in the future?"
 
@@ -57,7 +59,7 @@ module.exports = {
 
 		<hr class="little">
 
-		**Step 6: Choose Strategies**
+		**Step 7: Choose Strategies**
 
 		As you review all of the conditions mentioned, keep in mind that it often turns out that some of the conditions will already be met automatically and so require no work, whereas others will only be met if appropriate interventions are used.
 
