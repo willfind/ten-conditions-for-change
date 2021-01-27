@@ -9,7 +9,7 @@ module.exports = {
 
 		**Step 1: Choose Target Population**
 
-		Decide what population or person (it could be yourself!) whose lives you aim to improve via positive behavior change.
+		Select a population or person (it could be yourself!) whose lives you aim to improve via positive behavior change.
 
 		<hr class="little">
 
