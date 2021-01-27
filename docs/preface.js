@@ -5,12 +5,18 @@ module.exports = {
 	title: "PREFACE",
 
 	content: `
-		Behavior change is hard. The Ten Conditions for Change framework is designed to make it easier, whether your goal is to increase the number of life-saving vaccinations worldwide, or just to get yourself to go to the gym more often. This framework provides ten "Conditions for Change," which are designed to be sufficient for creating a new positive behavior. Read on to learn how you can use the framework.
+		Behavior change is hard. This website is designed to make it easier.
+
+		Here you will find our step-by-step behavior change framework (the "Ten Conditions for Change") along with our behavioral strategy search engine and concise summaries of seventeen other useful frameworks.
+
+		You can use the Ten Conditions for Change to help others (e.g., through healthier eating habits or vaccine adoption) or to create a positive change in your own life (e.g., by getting yourself to go to the gym more often or to practice daily meditation).
+
+		The "ten conditions" in this framework are designed to be _sufficient_ for creating a new positive behavior. Read on to learn how the framework works.
 
 		<hr class="long">
 
 		Successfully adopting a complex, positive behavior involves:
-		
+
 		<ol style="list-style-type: upper-roman;">
 			<li>making a <span class="is-highlighted is-orange">DECISION</span> to adopt the new behavior,</li>
 			<li>performing a number of <span class="is-highlighted is-green">ACTIONs</span> that comprise the new behavior, and</li>
