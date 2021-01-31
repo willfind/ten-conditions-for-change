@@ -7,7 +7,7 @@ module.exports = {
 	content: `
 		This framework provides ten "conditions for change" that are designed to be *sufficient* for succeeding at creating a new positive behavior. That is, we provide ten conditions that are very likely to produce behavior change if the intended person or population meets all of them. This structure also implies that any person who is failing to carry out a desired behavior change likely isn't meeting one or more of these ten conditions. If you can increase the likelihood of meeting these conditions, you can increase the chance that behavior change will occur. By "condition" in this context, we mean "a state of affairs that must be satisfied in order for a particular outcome to occur." In other words, we think that behavior change is likely to occur when these ten states of affairs are satisfied.
 
-		That means that this framework provides a systematic way to analyze a desired behavior for a desired person or population, and then to develop a strategy to increase the chance of successful adoption of the behavior. It also provides a method for analyzing why the behavior is not occurring already.
+		That means that this framework provides a systematic way to analyze a desired behavior for a given person or population, and then to develop a strategy to increase the chance of successful adoption of the behavior. It also provides a method for analyzing why the behavior is not occurring already.
 
 		This framework is specifically designed for positive, "complex" behaviors which require the target person or population to engage willingly in the change and to perform multiple actions across time.
 
@@ -56,7 +56,7 @@ module.exports = {
 			</ol>
 		</ol>
 
-		The <span class="is-highlighted is-orange">DECISION</span> phase refers to conditions that are sufficient for a person to decide to change their behavior. For instance, if someone smokes cigarettes habitually, they'll have to make a _decision to quit_ before they'll _take action to quit_. Often, a decision only needs to be made once; but if the target person later changes their mind about changing their behavior, then the decision will need to be re-made.
+		The <span class="is-highlighted is-orange">DECISION</span> phase refers to conditions that are sufficient for a person to decide to change their behavior. For instance, if someone smokes cigarettes habitually, they will have to make a _decision_ to quit before taking _action_ to quit. Often, a decision only needs to be made once; but if the target person later changes their mind about changing their behavior, then the decision will need to be re-made.
 
 		The <span class="is-highlighted is-green">ACTION</span> phase refers to conditions that are sufficient for a person to perform the various actions that together constitute a successful behavior change. Most complex behaviors will involve taking a number of different actions which are spread out across time, and the <span class="is-highlighted is-green">ACTION</span> phase should be applied to each of these actions separately. For instance, if someone is trying to completely quit smoking, they may have to change their behavior of buying cigarettes and their behavior of borrowing cigarettes from people at events, and perhaps also replace the habitual action of smoking with some alternative action instead.
 

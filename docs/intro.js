@@ -14,7 +14,7 @@ module.exports = {
 		There are, of course, a number of useful behavior change frameworks already in existence. With that fact in mind, we've specifically aimed to create a framework that:
 
 		1. **can easily be applied to practical problems** in a step-by-step fashion by individuals and teams, regardless of their level of experience designing behavior change interventions; and that...
-		2. **provides a comprehensive system** that can account for the huge range of different techniques used in practice (i.e., not simplifying the realm of consideration to a limited number of techniques).
+		2. **provides a comprehensive system** that can account for the huge range of techniques used in practice (i.e., not simplifying the realm of consideration to a limited number of techniques), making it relevant even to experienced behavior change practitioners.
 
 		At the bottom of this page, we also provide simplified summaries of a number of other behavior change frameworks, and explain how each relates to our Ten Conditions for Change model.
 	`,
