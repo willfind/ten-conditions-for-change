@@ -170,7 +170,7 @@ module.exports = {
 						<a class="black-fake-link" onclick="radio.broadcast('go-to-substep', 'maintains')">
 							Maintains
 						</a>
-						attributes required to perform future needed actions
+						internal attributes and external conditions required to perform future needed actions
 					</td>
 				</tr>
 			</table>

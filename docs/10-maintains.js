@@ -2,7 +2,7 @@
 
 module.exports = {
 
-	title: "10. Maintains attributes required to perform future needed actions",
+	title: "10. Maintains internal attributes and external conditions required to perform future needed actions",
 
 	shortTitle: "Maintains",
 
