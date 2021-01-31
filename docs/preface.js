@@ -184,7 +184,7 @@ module.exports = {
 
 		<img class="diagram" src="res/img/diagram-sufficiency.png">
 
-		This also means that if a behavior is not occurring, then it is very likely that <b>one or more of the Ten Conditions is not being met</b>. Thus you can use the Ten Conditions as a diagnostic tool to pinpoint why a behavior is not occurring. Just go condition-by-condition to find the conditions that are failing:
+		This also means that if a behavior is not occurring, then it is very likely that <b>one or more of the Ten Conditions is not being met</b>. Thus, you can use the Ten Conditions as a diagnostic tool to pinpoint why a behavior is not occurring. Just go condition-by-condition to find the conditions that are failing:
 
 		<img class="diagram" src="res/img/diagram-sufficiency-2.png">
 
