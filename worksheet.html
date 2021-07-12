@@ -27,7 +27,7 @@
       }
 
       body {
-        margin: 1em;
+        margin: 0;
         padding: 0;
         border: 0;
         width: calc(100% - 2em);
@@ -36,6 +36,7 @@
       }
 
       .section {
+        margin: 1em 0;
         padding: 0;
       }
 
@@ -45,7 +46,7 @@
         max-width: 100%;
         height: 1em;
         display: block;
-        border-bottom: 1px solid black;
+        border-bottom: 2px solid black;
         margin-bottom: 1em;
       }
 
@@ -59,16 +60,54 @@
         margin: 0 0 1em 0;
       }
 
-      .floored-row-left {
-        width: 1.5em;
+      .centered-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        margin: 0 0 1em 0;
       }
 
-      .floored-row-right {
+      .row-left {
+        width: 2em;
+      }
+
+      .row-right {
         width: 100%;
       }
 
-      .floored-row .writing-line {
+      .floored-row .writing-line, .centered-row .writing-line {
         margin: 0;
+      }
+
+      .checkbox {
+        width: 1em;
+        height: 1em;
+        margin: 0;
+        padding: 0;
+        border: 2px solid black;
+        background-color: rgb(235, 235, 235);
+      }
+
+      .is-indented {
+        margin-left: 1.5em;
+      }
+
+      .has-margin-bottom {
+        margin-bottom: 1.5em;
+      }
+
+      .page-break {
+        display: none;
+      }
+
+      @media print {
+        .page-break {
+          display: block;
+          page-break-before: always;
+        }
       }
     </style>
   </head>
@@ -94,7 +133,7 @@
 
         <h3>Change Behavior for the Better Worksheet</h3>
 
-        <p>This worksheet is based on the Ten Conditions for Change framework used in ClearerThinking.org’s online tool "Change Behavior for the Better," which breaks positive behavior change into three phases and ten conditions that are sufficient to create a behavior change. More information on this framework can be found at: https://www.sparkwave.tech/conditions-for-change</p>
+        <p>This worksheet is based on the Ten Conditions for Change framework used in ClearerThinking.org’s online tool "Change Behavior for the Better," which breaks positive behavior change into three phases and ten conditions that are sufficient to create a behavior change. More information on this framework can be found at: <a href="https://www.sparkwave.tech/conditions-for-change">sparkwave.tech/conditions-for-change</a></p>
 
         <h3>The Behavior Change</h3>
 
@@ -105,55 +144,43 @@
         <p>The sequence of actions that will be sufficient for the behavior change:</p>
 
         <div style="margin-bottom: 1.5em;">
-          <div class="floored-row">
-            <div class="floored-row-left">
-              1)
+          <div class="floored-row" v-for="i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+            <div class="row-left">
+              {{ i }})
             </div>
 
-            <div class="floored-row-right">
+            <div class="row-right">
               <div class="writing-line"></div>
             </div>
           </div>
+        </div>
 
-          <div class="floored-row">
-            <div class="floored-row-left">
-              2)
+        <div class="page-break"></div>
+
+        <p>Check off the conditions that have already been met. Those that remain should be your main focus in making the behavior change. Brainstorm a strategy for making sure that each of the missing conditions gets met.</p>
+
+        <div v-for="phase in phases" class="has-margin-bottom">
+          <p><b>{{ phase.title }}</b></p>
+
+          <div v-for="condition in phase.conditions" class="centered-row is-indented">
+            <div class="row-left">
+              <div class="checkbox"></div>
             </div>
 
-            <div class="floored-row-right">
-              <div class="writing-line"></div>
-            </div>
-          </div>
-
-          <div class="floored-row">
-            <div class="floored-row-left">
-              3)
-            </div>
-
-            <div class="floored-row-right">
-              <div class="writing-line"></div>
+            <div class="row-right">
+              {{ condition }}
             </div>
           </div>
+        </div>
 
-          <div class="floored-row">
-            <div class="floored-row-left">
-              4)
-            </div>
+        <div class="has-margin-bottom">
+          <h3>Notes</h3>
 
-            <div class="floored-row-right">
-              <div class="writing-line"></div>
-            </div>
-          </div>
-
-          <div class="floored-row">
-            <div class="floored-row-left">
-              5)
-            </div>
-
-            <div class="floored-row-right">
-              <div class="writing-line"></div>
-            </div>
-          </div>
+          <div class="writing-line"></div>
+          <div class="writing-line"></div>
+          <div class="writing-line"></div>
+          <div class="writing-line"></div>
+          <div class="writing-line"></div>
         </div>
 
         <hr class="thick" style="margin-bottom: 1rem;">
@@ -163,5 +190,44 @@
         <div>Copyright <a href="https://www.sparkwave.tech/" target="_blank">Spark Wave</a> 2019.</div>
       </footer>
     </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+
+        data: {
+          phases: [
+            {
+              title: "Phase 1: Deciding on the change",
+              conditions: [
+                "Condition 1: Considering the change",
+                "Condition 2: Desiring the change",
+                "Condition 3: Intending the change",
+              ],
+            },
+
+            {
+              title: "Phase 2: Acting on the change",
+              conditions: [
+                "Condition 4: Remembering to take the actions",
+                "Condition 5: Believing in the success of the actions",
+                "Condition 6: Choosing the desired actions over other alternatives",
+                "Condition 7: Knowing how to do the actions",
+                "Condition 8: Having the resources for the actions",
+                "Condition 9: Embodying the skills required for the actions",
+              ],
+            },
+
+            {
+              title: "Phase 3: Continuing the change",
+              conditions: [
+                "Condition 10: Maintaining the change over time",
+              ],
+            },
+          ],
+        },
+      })
+    </script>
   </body>
 </html>
