@@ -11,7 +11,7 @@ module.exports = {
 
 		You can use the Ten Conditions for Change to help others (e.g., through creating healthier eating behaviors or increasing vaccine adoption) or to create a positive change in your own life (e.g., by getting yourself to exercise more or practice relaxation techniques daily).
 
-		The "ten conditions" in this framework are designed to be _sufficient_ for creating a new positive behavior. Read on to learn how the framework works.
+		The "ten conditions" in this framework are designed to be _sufficient_ for creating a new positive behavior. Read on to learn how the framework works (or [try our interactive tool here](https://programs.clearerthinking.org/change_behavior.html)).
 
 		<hr class="long">
 
