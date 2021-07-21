@@ -105,6 +105,10 @@
         margin-left: 1.5em;
       }
 
+      .has-margin-top {
+        margin-top: 3em;
+      }
+
       .has-margin-bottom {
         margin-bottom: 1.5em;
       }
@@ -143,7 +147,7 @@
 
         <h3>Change Behavior for the Better Worksheet</h3>
 
-        <p>This worksheet is based on the Ten Conditions for Change framework used in ClearerThinking.org’s online tool "Change Behavior for the Better," which breaks positive behavior change into three phases and ten conditions that are sufficient to create a behavior change. More information on this framework can be found at: <a href="https://www.sparkwave.tech/conditions-for-change">sparkwave.tech/conditions-for-change</a></p>
+        <p>This worksheet is based on the Ten Conditions for Change framework used in ClearerThinking.org’s online tool "Change Behavior for the Better," which breaks positive behavior change into three phases and ten conditions that are sufficient to create a behavior change. More information on this framework can be found at: <a href="https://www.sparkwave.tech/conditions-for-change">https://www.sparkwave.tech/conditions-for-change</a>. You can access the tool here: <a href="https://programs.clearerthinking.org/change_behavior.html">https://programs.clearerthinking.org/change_behavior.html</a></p>
 
         <p><b>The Behavior Change</b></p>
 
@@ -165,12 +169,12 @@
           </div>
         </div>
 
-        <p>Check off the conditions that have already been met. Those that remain should be your main focus in making the behavior change. Brainstorm a strategy for making sure that each of the missing conditions gets met.</p>
+        <p>Check off the conditions below that have already been met. Those that remain should be your main focus in making the behavior change. Brainstorm a strategy for making sure that each of the missing conditions is met.</p>
 
         <div v-for="phase in phases" class="has-margin-bottom">
           <p><b>{{ phase.title }}</b></p>
 
-          <div v-for="condition in phase.conditions" class="centered-row ceilinged-row is-indented">
+          <div v-for="condition in phase.conditions" class="centered-row ceilinged-row is-indented" :class="{'has-margin-top': condition.title === 'Condition 2: Desiring the change'}">
             <div class="row-left">
               <div class="checkbox"></div>
             </div>
@@ -187,19 +191,20 @@
           </div>
         </div>
 
-        <div class="has-margin-bottom">
+        <!-- <div class="has-margin-bottom">
           <h3>Notes</h3>
 
           <div class="writing-line"></div>
           <div class="writing-line"></div>
           <div class="writing-line"></div>
-        </div>
-
-        <hr class="thick" style="margin-bottom: 1rem;">
+        </div> -->
       </div>
 
+      <br><br>
+
       <footer class="section">
-        <div>Copyright <a href="https://www.sparkwave.tech/" target="_blank">Spark Wave</a> 2019.</div>
+        <hr class="thick" style="margin-bottom: 1rem;">
+        <div>Copyright <a href="https://www.sparkwave.tech/" target="_blank">Spark Wave</a> 2021.</div>
       </footer>
     </div>
 
@@ -216,17 +221,17 @@
               conditions: [
                 {
                   title: "Condition 1: Considering the change",
-                  question: "Are you genuinely considering making the change?"
+                  question: "If you're not already genuinely considering making the change, what could you do to start seriously considering it?"
                 },
 
                 {
                   title: "Condition 2: Desiring the change",
-                  question: "Do you truly want to make the change?"
+                  question: "If you don’t already really want to make the change, what could you do to desire it more?"
                 },
 
                 {
                   title: "Condition 3: Intending the change",
-                  question: "Have you set a concrete time to start working towards the change?"
+                  question: "If you haven’t already committed to start working towards the change, what could you do to make (and stick to) this commitment?"
                 },
               ],
             },
@@ -257,12 +262,12 @@
 
                 {
                   title: "Condition 8: Having the resources for the actions",
-                  question: "How can you gain the resources required to complete the action in the sequence?"
+                  question: "How can you gain the resources required to complete the actions in the sequence?"
                 },
 
                 {
                   title: "Condition 9: Embodying the skills required for the actions",
-                  question: "How can you learn the skills required to complete the action in the sequence?"
+                  question: "How can you learn the skills required to complete the actions in the sequence?"
                 },
               ],
             },
@@ -273,7 +278,7 @@
               conditions: [
                 {
                   title: "Condition 10: Maintaining the change over time",
-                  question: "How can you maintain all the previous conditions for the foreseeable future?"
+                  question: "How can you maintain all of the previous conditions for the foreseeable future?"
                 },
               ],
             },
