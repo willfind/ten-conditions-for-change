@@ -87,6 +87,10 @@ module.exports = {
 		The conditions for change that you think are not already well met provide hypotheses about how to increase the chance that the behavior will be changed. For each condition that is not well met, consider the provided example strategies for improving that condition, or brainstorm your own strategies. Consider which strategies seem promising regarding the intended behavior change for the intended population given each strategy's likelihood of success and difficulty of implementation. Now, ask yourself, "Given all of the conditions for change that are not well met and all of the relevant strategies for meeting that condition, which would be the most effective for me to work on? Which do I predict will provide the biggest expected improvements in behavior change relative to their cost, effort, or difficulty of implementation?"
 
 		**Example:** If parents don't know about the HepB vaccine at all, then (to help them meet the "Considers" condition) you might run an ad campaign on TV or on a major social network. If parents are likely to forget about the second and third dose appointments, then (to help them meet the "Remembers" condition) you might remind them with text message, email, and phone call reminders. If parents falsely believe that the vaccine will cause their children to develop autism, then (to help them meet the "Desires," "Believes," and/or "Chooses" conditions) you might develop and distribute a free pamphlet that obstetricians can give to new mothers that clearly explains the benefits of vaccinations.
+
+		<hr class="little">
+
+		We've designed an interactive program and a worksheet to help you work through the steps. You can access the program [here](https://programs.clearerthinking.org/change_behavior.html) and the worksheet [here](https://www.sparkwave.tech/conditions-for-change/worksheet.pdf)!
 	`,
 
 }
