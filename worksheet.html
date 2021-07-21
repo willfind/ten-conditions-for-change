@@ -33,6 +33,7 @@
         width: 100%;
         max-width: 100%;
         min-width: 100%;
+        font-size: 0.985em;
       }
 
       .section {
@@ -106,7 +107,7 @@
       }
 
       .has-margin-top-extra {
-        margin-top: 3em !important;
+        margin-top: 5em !important;
       }
 
       .has-margin-top {
@@ -153,7 +154,7 @@
       <div class="section">
         <hr class="thick" style="margin-bottom: 1rem;">
 
-        <h3>Change Behavior for the Better Worksheet</h3>
+        <!-- <h3>Change Behavior for the Better Worksheet</h3> -->
 
         <p>This worksheet is based on the Ten Conditions for Change framework used in ClearerThinking.org’s online tool "Change Behavior for the Better," which breaks positive behavior change into three phases and ten conditions that are sufficient to create a behavior change. More information on this framework can be found at: <a href="https://www.sparkwave.tech/conditions-for-change">https://www.sparkwave.tech/conditions-for-change</a>. You can access the tool here: <a href="https://programs.clearerthinking.org/change_behavior.html">https://programs.clearerthinking.org/change_behavior.html</a></p>
 
@@ -182,7 +183,7 @@
         <div v-for="phase in phases" class="has-margin-bottom">
           <p><b>{{ phase.title }}</b></p>
 
-          <div v-for="condition in phase.conditions" class="centered-row ceilinged-row is-indented" :class="{'has-margin-top-extra': condition.title === 'Condition 2: Desiring the change'}">
+          <div v-for="condition in phase.conditions" class="centered-row ceilinged-row is-indented">
             <div class="row-left">
               <div class="checkbox"></div>
             </div>
@@ -208,12 +209,12 @@
         </div> -->
       </div>
 
-      <!-- <br><br> -->
+      <br><br>
 
-      <!-- <footer class="section">
+      <footer class="section">
         <hr class="thick" style="margin-bottom: 1rem;">
         <div>Copyright <a href="https://www.sparkwave.tech/" target="_blank">Spark Wave</a> 2021.</div>
-      </footer> -->
+      </footer>
     </div>
 
     <script src="node_modules/vue/dist/vue.min.js"></script>
