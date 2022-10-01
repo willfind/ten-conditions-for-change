@@ -1,11 +1,10 @@
 // overview.js
 
 module.exports = {
+  title: "OVERVIEW",
 
-	title: "OVERVIEW",
-
-	content: `
-		This framework provides ten "conditions for change" that are designed to be *sufficient* for succeeding at creating a new positive behavior. That is, we provide ten conditions that are very likely to produce behavior change if the intended person or population meets all of them. This structure also implies that any person who is failing to carry out a desired behavior change likely isn't meeting one or more of these ten conditions. If you can increase the likelihood of meeting these conditions, you can increase the chance that behavior change will occur. By "condition" in this context, we mean "a state of affairs that must be satisfied in order for a particular outcome to occur." In other words, we think that behavior change is likely to occur when these ten states of affairs are satisfied.
+  content: `
+		This framework provides ten "conditions for change" that are designed to be *sufficient* for succeeding at creating a new positive behavior. That is, we provide ten conditions that are very likely to produce behavior change if the intended person or population meets all of them. This structure also implies that any person who is failing to carry out a desired behavior change likely isn't meeting one or more of these ten conditions. If you can increase the likelihood of meeting these conditions, you can increase the chance that behavior change will occur.
 
 		That means that this framework provides a systematic way to analyze a desired behavior for a given person or population, and then to develop a strategy to increase the chance of successful adoption of the behavior. It also provides a method for analyzing why the behavior is not occurring already.
 
@@ -93,5 +92,4 @@ module.exports = {
 
 		If a previous behavior change project failed, going through this list of ten conditions can also help you figure out why it failed. Ask yourself: "Which of the conditions likely weren't satisfied, therefore causing the target population to fail to adopt the target behavior?"
 	`,
-
 }

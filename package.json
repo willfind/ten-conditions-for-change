@@ -7,13 +7,16 @@
     "doc": "docs"
   },
   "scripts": {
-    "build": "watchify -e res/js/src/app.js -o res/js/bundle.js"
+    "build": "esbuild res/js/src/app.js --bundle --outfile=res/js/bundle.js --minify",
+    "watch": "esbuild res/js/src/app.js --bundle --outfile=res/js/bundle.js --minify --watch",
+    "build-data": "node build.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "csvtojson": "^2.0.10",
+    "esbuild": "^0.15.10",
     "gt-helpers": "git+https://github.com/jrc03c/gt-helpers.git",
     "jsdom": "^16.2.0",
     "lodash": "^4.17.20",
