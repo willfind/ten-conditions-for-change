@@ -132,43 +132,136 @@
 
           <p>The Ten Conditions for Change framework was made by <a href="/" target="_blank">Spark Wave</a>. Would you like to receive occasional updates about our research or projects?</p>
 
-          <!-- Begin Mailchimp Signup Form -->
-          <div id="mc_embed_signup">
-            <form action="https://tech.us7.list-manage.com/subscribe/post?u=9e5957c81cac843c342446e34&amp;id=c67e039dee" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-              <div id="mc_embed_signup_scroll">
+          <form id="mailing-list-sign-up-form">
+            <div>
+              <input
+                class="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+                type="email" />
+              <input aria-hidden="true" id="name" name="name" placeholder="Name" />
+              <input
+                class="button subscribe-button"
+                id="submit"
+                type="submit"
+                value="Submit" />
+            </div>
 
-              <div class="mc-field-group">
-                <input type="email" value="" name="EMAIL" class="required email mailchimp-field has-body-font" id="mce-EMAIL" placeholder="Email" required>
-              </div>
+            <div id="message"></div>
+          </form>
 
-              <div class="mc-field-group">
-                <input type="text" value="" name="FNAME" class="required mailchimp-field has-body-font" id="mce-FNAME" placeholder="First Name" required>
-              </div>
+          <script>
+            function querySelectorAsync(selector, root) {
+              root = root ?? document
+              const timeout = 15 * 1000
+              const start = performance.now()
 
-              <div class="mc-field-group">
-                <input type="text" value="" name="MMERGE2" class="mailchimp-field has-body-font" id="mce-MMERGE2" placeholder="Last Name" required>
-              </div>
+              return new Promise((resolve, reject) => {
+                try {
+                  const interval = setInterval(() => {
+                    const el = root.querySelector(selector)
 
-              <div class="mc-field-group">
-                <input type="text" value="" name="MMERGE3" class="mailchimp-field has-body-font" id="mce-MMERGE3" placeholder="Company (Optional)">
-              </div>
+                    if (typeof el === "undefined") {
+                      if (performance.now() - start >= timeout) {
+                        clearInterval(interval)
 
-              <div id="mce-responses" class="clear">
-                <div class="response" id="mce-error-response" style="display:none"></div>
-                <div class="response" id="mce-success-response" style="display:none"></div>
-              </div>
+                        throw new Error(
+                          `No element found for selector "${selector}"!`,
+                        )
+                      }
 
-              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_9e5957c81cac843c342446e34_c67e039dee" tabindex="-1" value=""></div>
-              <div class="clear">
-                <input type="submit" value="Subscribe!" name="subscribe" id="mc-embedded-subscribe" class="button mailchimp-subscribe-button has-body-font has-font-weight-bold">
-              </div>
-              </div>
-            </form>
-          </div>
+                      return
+                    }
 
-          <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='MMERGE2';ftypes[2]='text';fnames[3]='MMERGE3';ftypes[3]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
-          <!--End mc_embed_signup-->
+                    clearInterval(interval)
+                    return resolve(el)
+                  }, 100)
+                } catch (e) {
+                  return reject(e)
+                }
+              })
+            }
+
+            !(async () => {
+              const BASE_URL = "https://ct-programs.vercel.app"
+              const response = await fetch(BASE_URL + "/api/mailing-list/token")
+              const token = await response.text()
+              
+              const form = await querySelectorAsync(
+                "#mailing-list-sign-up-form",
+              )
+
+              form.addEventListener("submit", async event => {
+                event.preventDefault()
+                event.stopImmediatePropagation()
+
+                const submitButton = form.querySelector("#submit")
+                submitButton.setAttribute("disabled", true)
+                submitButton.value = "Submitting..."
+
+                const emailInput = form.querySelector("#email")
+                emailInput.setAttribute("disabled", true)
+
+                const nameInput = form.querySelector("#name")
+                nameInput.setAttribute("disabled", true)
+
+                const message = form.querySelector("#message")
+                message.innerHTML = ""
+                message.classList.remove("error")
+                message.classList.remove("success")
+                message.style.display = "none"
+
+                try {
+                  const response = await fetch(
+                    BASE_URL + "/api/mailing-list/subscribe",
+                    {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        email: emailInput.value,
+                        name: nameInput.value,
+                        token: token,
+                      }),
+                    },
+                  )
+
+                  if (response.status >= 400) {
+                    console.error(await response.text())
+                    emailInput.removeAttribute("disabled")
+                    nameInput.removeAttribute("disabled")
+                    submitButton.removeAttribute("disabled")
+                    submitButton.value = "Submit"
+                    message.classList.add("error")
+                    message.innerHTML =
+                      "Uh-oh! An error occurred. Please try again later."
+                    message.style.display = "block"
+                    return
+                  }
+
+                  emailInput.parentElement.removeChild(emailInput)
+                  nameInput.parentElement.removeChild(nameInput)
+                  submitButton.parentElement.removeChild(submitButton)
+                  message.classList.add("success")
+                  message.innerHTML = "Thanks! We've added you as a subscriber!"
+                  message.style.display = "block"
+                } catch (e) {
+                  setTimeout(() => {
+                    console.error(e)
+                    emailInput.removeAttribute("disabled")
+                    nameInput.removeAttribute("disabled")
+                    submitButton.removeAttribute("disabled")
+                    submitButton.value = "Submit"
+                    message.classList.add("error")
+                    message.innerHTML =
+                      "Uh-oh! An error occurred. Please try again later."
+                    message.style.display = "block"
+                  }, 3000)
+                }
+              })
+            })()
+          </script>
         </div>
 
         <footer class="section">

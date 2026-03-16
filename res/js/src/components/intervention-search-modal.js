@@ -1,6 +1,5 @@
 let Vue = require("vue/dist/vue.min")
 let lunr = require("lunr")
-let gt = require("gt-helpers")
 let utils = require("../utils.js")
 let radio = utils.radio
 let pause = utils.pause
@@ -116,7 +115,7 @@ module.exports = Vue.component("intervention-search-modal", {
     </div>
   `,
 
-  data: function(){
+  data: function () {
     return {
       query: "",
       results: [],
@@ -129,7 +128,7 @@ module.exports = Vue.component("intervention-search-modal", {
   },
 
   watch: {
-    isVisible: function(){
+    isVisible: function () {
       let self = this
       if (!self.isVisible) return
       self.focus()
@@ -137,32 +136,35 @@ module.exports = Vue.component("intervention-search-modal", {
   },
 
   methods: {
-    showInterventionSearchModal: function(){
+    showInterventionSearchModal: function () {
       radio.broadcast("set-intervention-search-modal-is-visible", true)
     },
 
-    focus: function(){
+    focus: function () {
       let self = this
 
-      let interval = setInterval(function(){
+      let interval = setInterval(function () {
         if (!self.$refs.searchBox1 && !self.$refs.searchBox2) return
         clearInterval(interval)
-        let box = window.innerWidth >= 768 ? self.$refs.searchBox1 : self.$refs.searchBox2
+        let box =
+          window.innerWidth >= 768
+            ? self.$refs.searchBox1
+            : self.$refs.searchBox2
         box.focus()
         box.select()
       }, 100)
     },
 
-    search: function(){
+    search: function () {
       let self = this
 
       if (waitInterval) clearInterval(waitInterval)
 
-      waitInterval = setInterval(function(){
+      waitInterval = setInterval(function () {
         if (!self.isReady) return
         clearInterval(waitInterval)
 
-        if (self.query.length === 0){
+        if (self.query.length === 0) {
           Vue.set(self, "results", [])
           return
         }
@@ -177,50 +179,64 @@ module.exports = Vue.component("intervention-search-modal", {
       }, 100)
     },
 
-    handleSearchWorkerOnMessage: function(event){
+    handleSearchWorkerOnMessage: function (event) {
       let self = this
       let data = event.data
 
-      if (data.message === "ready"){
+      if (data.message === "ready") {
         self.isReady = true
-      } else if (data.message === "results"){
+      } else if (data.message === "results") {
         Vue.set(self, "results", data.results)
         self.focus()
       }
     },
 
-    goto: async function(result){
-      window.dispatchEvent(new KeyboardEvent("keydown", {
-        pageX: 0,
-        pageY: 0,
-        key: "Escape",
-      }))
+    goto: async function (result) {
+      window.dispatchEvent(
+        new KeyboardEvent("keydown", {
+          pageX: 0,
+          pageY: 0,
+          key: "Escape",
+        }),
+      )
 
       let offset = 0
       radio.broadcast("collapsibles-set-is-expanded", false)
       await pause(100)
 
-      if (result.resultType === "intervention"){
-        radio.broadcast("collapsibles-expand-collapsible-section", result.substepid)
+      if (result.resultType === "intervention") {
+        radio.broadcast(
+          "collapsibles-expand-collapsible-section",
+          result.substepid,
+        )
         await pause(100)
-        radio.broadcast("collapsibles-expand-collapsible-section", result.subcategoryid)
+        radio.broadcast(
+          "collapsibles-expand-collapsible-section",
+          result.subcategoryid,
+        )
         await pause(100)
         offset = window.innerHeight / 3
-      } else if (result.resultType === "framework"){
+      } else if (result.resultType === "framework") {
         radio.broadcast("collapsibles-expand-collapsible-section", result.id)
         await pause(100)
         offset = window.innerHeight / 8
-      } else if (result.resultType === "bias"){
-        radio.broadcast("collapsibles-expand-collapsible-section", result.substepid)
+      } else if (result.resultType === "bias") {
+        radio.broadcast(
+          "collapsibles-expand-collapsible-section",
+          result.substepid,
+        )
         await pause(100)
-        radio.broadcast("collapsibles-expand-collapsible-section", result.biasesContainerID)
+        radio.broadcast(
+          "collapsibles-expand-collapsible-section",
+          result.biasesContainerID,
+        )
         await pause(100)
         radio.broadcast("collapsibles-expand-collapsible-section", result.id)
         await pause(100)
         offset = window.innerHeight / 8
       }
 
-      let interval = setInterval(async function(){
+      let interval = setInterval(async function () {
         let target = document.getElementById(result.id)
         if (!target) return
         clearInterval(interval)
@@ -234,12 +250,12 @@ module.exports = Vue.component("intervention-search-modal", {
     },
   },
 
-  mounted: function(){
+  mounted: function () {
     let self = this
 
-    if (!searchWorker){
+    if (!searchWorker) {
       searchWorker = new Worker("search-worker.js")
-      searchWorker.postMessage({message: "load"})
+      searchWorker.postMessage({ message: "load" })
       searchWorker.onmessage = self.handleSearchWorkerOnMessage
     }
   },
