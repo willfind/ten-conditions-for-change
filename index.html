@@ -222,6 +222,9 @@
                       body: JSON.stringify({
                         email: emailInput.value,
                         name: nameInput.value,
+                        options: {
+                          utm_source: "ten-conditions-for-change", 
+                        },
                         token: token,
                       }),
                     },
